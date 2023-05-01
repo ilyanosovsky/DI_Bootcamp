@@ -98,6 +98,12 @@ footer {
         background-color: red;
     }
 
+    section {
+        display: flex;
+        align-items: center;
+        flex-direction: row-reverse;
+    }
+
 }
 
 
