@@ -21,4 +21,6 @@ p::first-letter {
     font-size: 100px;
     color: red;
     float: left;
+    line-height: 3rem;
+    padding-top: 15px;
 }
