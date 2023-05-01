@@ -16,13 +16,88 @@ body {
     display: flex;
     border: 5px solid purple;
     margin: 30vh;
-    width: 40vw;
+    width: 70vw;
     height: 50vh;
     font-family: 'Ubuntu', sans-serif;
+    
 }
 
 .log_in_form {
     display: flex;
     flex-direction: column;
-    margin: 3vh;
+    margin: 3vh; 
+    padding-top: 3vh;
+    width: 50%;   
+    border: 3px solid black;
+}
+
+input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: rgb(225, 222, 222);
+}
+
+input[type=submit] {
+    background-color: blueviolet;
+    color: white;
+}
+
+h2, a {
+    text-align: center;
+}
+
+#middle {
+    border: 3px solid black;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+/* input[type=checkbox] {
+    border: 3px solid black;
+} */
+
+#check {
+    border: 3px solid black;
+    display: flex;
+    width: 50%;
+    /* justify-content: flex-start; */
+}
+
+#forgot {
+    border: 3px solid black;
+    width: 50%;
+    text-align: right;
+    text-decoration: none;
+    /* align-content: center; */
+    /* padding-top: 2%; */
+}
+
+.registration_form {
+    display: flex;
+    width: 50%;
+    text-align: center;
+    flex-direction: column;
+    border: 3px solid black;
+    background-color: blueviolet;
+    color: white;
+    justify-content: center;
+}
+
+.icons {
+    display: flex;
+    justify-content: center;
+}
+
+span {
+    border: 3px solid black;
+    text-align: center;
+}
+
+.fa-user-plus {
+    font-size: 50px;
 }

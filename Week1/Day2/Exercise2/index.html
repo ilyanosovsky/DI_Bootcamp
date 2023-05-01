@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/cb4b69401d.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
 <body>
@@ -15,18 +16,33 @@
             <h2>Log In</h2>
             <input type="email" id="email" name="your_email" placeholder="email">
             <input type="password" id="password" name="your_password" placeholder="password">
-            <div>
-                <input type="checkbox" name="remember_me" id="checkbox">
-                <a href="#forgot_pass">Forgot password?</a>
+            <div id="middle">
+                <div id="check">
+                    <input type="checkbox" name="remember_me" id="checkbox">
+                    <label for="checkbox">Remember me</label>
+                </div>    
+                <a id="forgot" href="#forgot_pass">Forgot password?</a>
             </div>
-            <input type="submit" value="submit">  
+            <input type="submit" value="LOG IN">  
+
             <a href="#connect">Or Connect with</a>  
+
+            <div class="icons">
+                <i class="fa-brands fa-facebook-f"></i>
+                <i class="fa-brands fa-twitter"></i>
+                <i class="fa-brands fa-github"></i>
+                <i class="fa-brands fa-linkedin"></i>
+            </div>
+
+            <span>&copy 2020</span>
+
         </form>
 
         <form class="registration_form">
+            <i class="fa-light fa-user-plus"></i>
             <h1>Hello, friend!</h1>
             <p>Enter your personal details and start journey with us</p>
-            <input type="button" >
+            <button>Register</button>
         </form>
 
     </div>
