@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    
+}
+
+.container {
+    display: flex;
+    border: 5px solid purple;
+    margin: 30vh;
+    width: 40vw;
+    height: 50vh;
+    font-family: awesome;
+}
+
+.log_in_form {
+    display: flex;
+    flex-direction: column;
+    margin: 3vh;
+}
