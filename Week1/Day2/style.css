@@ -1,0 +1,24 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+input:hover {
+    background-color: blue;
+}
+
+
+.radio_form > input:checked + label {
+    color: blue;
+}
+
+input[type="checkbox"]:checked + label {
+    color: black;
+}
+
+p::first-letter {
+    font-size: 100px;
+    color: red;
+    float: left;
+}
