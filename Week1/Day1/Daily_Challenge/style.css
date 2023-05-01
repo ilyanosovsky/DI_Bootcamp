@@ -1,6 +1,7 @@
 * {
     box-sizing: border-box;
     margin: 0;
+    padding: 0;
 }
 
 /* ----------------------------------------background img */
@@ -78,3 +79,53 @@ footer {
     color: white;
     text-align: center;
 }
+
+/* ---------------------------------------Media Querry */
+
+/* @media all and (min-width: 1200px) {
+
+} */
+
+
+@media all and (min-width: 992px) and (max-width: 1200px) {
+    /* large devices */
+
+    .container {
+        background-color: red;
+        color: white;
+    }
+
+}
+
+
+
+@media all and (min-width: 768px) and (max-width: 992px) {
+    /* medium devices */
+    h1 {
+        font-size: 25px;
+    }
+
+    .container {
+        background-color: greenyellow;
+    }
+
+    li {
+        color: black;
+    }
+    
+}
+
+@media all and (min-width: 600px) and (max-width: 768px) {
+    /* small devices */
+    h1 {
+        font-size: 35px;
+    }
+
+    .container {
+        background-color: yellow;
+    }
+    li {
+        color: black;
+    }
+}
+
