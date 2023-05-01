@@ -45,10 +45,18 @@ ul {
 
   li {
     display: inline-block;
-    color: white;
     text-align: center;
     padding: 14px 16px;
+  }
+
+  li a {
+    color: white;
     text-decoration: none;
+
+  }
+  
+  li a:hover {
+    color: grey;
   }
 
 /* ----------------------------------------Text inside */
@@ -80,11 +88,7 @@ footer {
     text-align: center;
 }
 
-/* ---------------------------------------Media Querry */
-
-/* @media all and (min-width: 1200px) {
-
-} */
+/* ---------------------------------------Media Querries */
 
 
 @media all and (min-width: 992px) and (max-width: 1200px) {
@@ -92,7 +96,6 @@ footer {
 
     .container {
         background-color: red;
-        color: white;
     }
 
 }
@@ -109,7 +112,7 @@ footer {
         background-color: greenyellow;
     }
 
-    li {
+    li a, h3 {
         color: black;
     }
     
@@ -124,7 +127,7 @@ footer {
     .container {
         background-color: yellow;
     }
-    li {
+    li a, h3{
         color: black;
     }
 }
