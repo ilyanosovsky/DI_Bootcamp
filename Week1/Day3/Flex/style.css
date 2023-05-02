@@ -19,6 +19,7 @@
     flex-direction: column;
     border: 2px solid red;
     gap: 2rem;
+    padding: 1rem;
 }
 
 div {
