@@ -1,0 +1,36 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+/* ------------------------------------main section with 3 flrx inside */
+main {
+    display: flex;
+    height: 100vh;
+    justify-content: space-between;
+}
+
+
+/* -------------------------------------styling for boxes */
+div {
+    border: 1px solid black;
+    background-color: yellow;
+    width: 100px;
+    height: 100px;
+}
+
+section {
+    display: flex;
+    justify-content: space-between;
+}
+
+.left, .right{
+    flex-direction: column;
+}
+
+.middle {
+    align-items: center;
+    width:60vw;
+}
