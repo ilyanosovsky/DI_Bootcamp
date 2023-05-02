@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    border: 1px solid black;
+    font-family: 'Ubuntu', sans-serif;
+    flex-direction: column;
+}
+
+/* -------------------------------------Header styling */
+header {
+    display: flex;
+    border: 1px solid black;
+    justify-content: space-around;
+}
+
+.head {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 60%;
+    padding: 5px;
+}
+
+.picture {
+    border: 1px solid black;
+    display: flex;
+    width: 30%;
+    justify-content: center;
+}
+
+/* --------------------------------------Main section of CV */
+
+main {
+    display: flex;
+    border: 1px solid black;
+    justify-content: space-around;
+}
+
+/* ----------------------------Left section */
+.left-side {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    padding: 5px;
+}
+
+/* ---------------Education */
+.education {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+}
+
+/* ---------------Other Education */
+.other-education {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+}
+
+/* ---------------Work Experience */
+.work-experience {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+}
+
+
+/* ----------------------------Right section */
+.right-side {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    padding: 5px;
+}
+
+.skills {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+}
+
+.text-skills {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+}
+
+.socials {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+}
+
+
+/* -------Text decorations */
+.text {
+    border: 1px solid rgb(255, 0, 0);
+    display: flex;
+    flex-direction: column;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.technology-stack {
+    border: 1px solid rgb(255, 0, 0);
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+.position {
+    display: flex;
+    justify-content: space-between;
+}
+
+.title {
+    color: rgb(255, 0, 0);
+}
+
+.title-skills {
+    color: blueviolet;
+}
+
+.blue {
+    color: blue;
+}
