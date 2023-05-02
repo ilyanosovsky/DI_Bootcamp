@@ -1,0 +1,33 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+main {
+    display: grid;
+    grid-template-rows: repeat(16, 1fr);
+    grid-template-columns: repeat(16, 1fr);
+    border: 1px solid black;
+    height: fit-content;
+    width: fit-content;
+}
+
+div {
+    height: 30px;
+    width: 30px;
+    border: 1px solid white;
+}
+
+.first {
+    background-color: orange;
+
+}
+
+.second {
+    background-color: rgb(236, 185, 91);
+}
+
+.third {
+    background-color: brown;
+}
