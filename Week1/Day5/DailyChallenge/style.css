@@ -4,9 +4,25 @@
     box-sizing: border-box;
 }
 
+body{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
 body > div {
-    width:483px;
-    height:298px;
+    display: flex;
+    margin: 50px;
+    width: 200px;
+    height:250px;
+    border-radius: 10px;
     background:#676470;
-    transition:all 0.3s ease;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: x-large;
+}
+
+.bonus {
+    width: 100%;
 }
