@@ -7,12 +7,56 @@
 body {
     padding: 5px;
 }
-
+            
+/* ----------------------------------Working with Header properties */
 header {
     display: flex;
     border: 1px solid black;
     height: 50px;
+    justify-content: space-between;
+}    
+
+.logo {
+    border: 1px solid black;
+    width: 10%;
+    height: 100%;
 }
+
+/* Navigation bar */
+
+nav {
+    display: flex;
+}    
+
+ul {
+  display: flex;  
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li a {
+  display: flex;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+
+.download {
+    display: flex;
+    border: 1px solid black;
+    height: 100%;
+}
+
+
+/* ----------------------------------Main part of the page */
 
 article {
     display: flex;
@@ -34,9 +78,29 @@ main {
 }
 
 section {
-    height: 100vh;
     border: 1px solid red;
 }
+
+/* --------------------------Welcome section with intro */
+
+.welcome {
+    display: flex;
+    height: 100vh;
+    padding-left: 10vw;
+    padding-right: 10vw;
+    border: 1px solid green;
+    align-items: center;
+}
+
+
+/* --------------------------About section with info */
+
+.about {
+    display: flex;
+    /* height: 100vh; */
+    border: 1px solid green;
+}
+
 
 footer {
     height: 50px;
