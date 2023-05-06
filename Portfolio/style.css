@@ -60,7 +60,7 @@ li a:hover {
 
 article {
     display: flex;
-    height: 100vh;
+    /* height: 100vh; */
     margin-top: 5px;
     justify-content: space-between;
 }
@@ -75,10 +75,8 @@ aside {
 }
 
 .socials {
-    display: flex;
-    /* flex-direction: column; */
+    flex-direction: column;
     align-items: end;
-    justify-content: center
 }
 
 #icons {
@@ -86,7 +84,7 @@ aside {
     display: flex;
     height: 15vh;
     position: fixed;
-    margin-bottom: 30vh;
+    bottom: 20vh;
 
 }
 /* ------------------------------------------ */
@@ -172,6 +170,7 @@ section {
     margin-top: 50px;
 }
 
+
 .project-picture {
     display: flex;
     border: 1px solid rgb(255, 0, 225);
@@ -179,13 +178,30 @@ section {
     height: 30vh;
 }
 
+
 /* ------------------------------------------------ */
 
 /* -----------------------Section with my contacts */
+#contacts {
+    display: flex;
+    padding-left: 10vw;
+    padding-right: 10vw;
+    border: 1px solid blue;
+}
 
+/* #bt-hello {
+    display: flex;
+    justify-content: center;
+} */
+
+/* ---------------------------Footer */
 
 footer {
+    display: flex;
+    flex-direction: column;
     height: 50px;
     border: 1px solid purple;
     margin-top: 5px;
+    justify-content: center;
+    align-items: center;
 }
