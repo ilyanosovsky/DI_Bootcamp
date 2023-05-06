@@ -13,6 +13,8 @@ color: #267bca; - light blue for text
 color: #ff4499; - pink for specials
 color: white; - in case */
 
+
+/* -----------put some style */
 body {
     padding: 5px;
     background-color: #0a0047;
@@ -32,6 +34,26 @@ h1 {
 #pink_name {
     color: #ff4499;
 }
+
+button {
+    background-color: #0a0047;
+    color: #00ffd2;
+    border: 1px solid #00ffd2;
+    border-radius: 10px;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #00ffd2;
+    color: #0a0047;
+}
+
+/* -------------------- */
+
             
 /* ----------------------------------Working with Header properties */
 header {
