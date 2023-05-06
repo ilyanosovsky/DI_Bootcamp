@@ -1,11 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
+/* color pallete
+color: #00ffd2; - light green for highlights
+color: #0a0047; - dark blue for background
+color: #267bca; - light blue for text
+color: #ff4499; - pink for specials
+color: white; - in case */
+
 body {
     padding: 5px;
+    background-color: #0a0047;
+    font-family: 'JetBrains Mono', monospace;
+    color: #267bca; 
+}
+
+span, h4, footer {
+    color: #00ffd2;
+}
+
+h1 {
+    color: white;
+    font-size: 3rem;
+}
+
+#pink_name {
+    color: #ff4499;
 }
             
 /* ----------------------------------Working with Header properties */
@@ -34,7 +59,7 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
+  background-color: #0a0047;
 }
 
 li a {
@@ -46,7 +71,7 @@ li a {
 }
 
 li a:hover {
-  background-color: #111;
+  color: #00ffd2;
 }
 
 .download {
