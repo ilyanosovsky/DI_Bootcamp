@@ -69,6 +69,7 @@ article {
 /* aside left block with social icons FIXED */
 
 aside {
+    display: flex;
     border: 1px solid black;
     width: 5%;
 }
@@ -118,7 +119,7 @@ section {
 
 #about {
     display: flex;
-    height: 100vh;
+    /* height: 100vh; */
     padding-left: 10vw;
     padding-right: 10vw;
     border: 1px solid green;
@@ -158,6 +159,30 @@ section {
 /* ------------------------------------------ */
 
 /* -----------------------Section with my projects */
+
+#projects {
+    display: flex;
+    padding-left: 10vw;
+    padding-right: 10vw;
+}
+
+.card-project {
+    border: 1px solid blue;
+    display: flex;
+    margin-top: 50px;
+}
+
+.project-picture {
+    display: flex;
+    border: 1px solid rgb(255, 0, 225);
+    width: 30vw;
+    height: 30vh;
+}
+
+/* ------------------------------------------------ */
+
+/* -----------------------Section with my contacts */
+
 
 footer {
     height: 50px;
