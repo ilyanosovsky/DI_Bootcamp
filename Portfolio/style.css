@@ -22,13 +22,19 @@ body {
     color: #267bca; 
 }
 
-span, h4, footer {
+span, h4, h3, footer {
     color: #00ffd2;
 }
 
 h1 {
     color: white;
     font-size: 3rem;
+}
+
+h2 {
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 3vh;
 }
 
 #pink_name {
@@ -58,14 +64,21 @@ button:hover {
 /* ----------------------------------Working with Header properties */
 header {
     display: flex;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     height: 50px;
     justify-content: space-between;
 }    
 
 .logo {
-    border: 1px solid black;
+    display: flex;
+    /* border: 1px solid black; */
     width: 10%;
+    height: 100%;
+    justify-content: center;
+}
+
+#logo-pic {
+
     height: 100%;
 }
 
@@ -113,39 +126,58 @@ article {
 }
 
 
-/* aside left block with social icons FIXED */
+/* aside left and right blocks with social icons FIXED */
 
 aside {
     display: flex;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     width: 5%;
 }
 
 .socials {
     flex-direction: column;
-    align-items: end;
+    align-items: center;
 }
 
 #icons {
-    border: 1px solid rgb(5, 255, 109);
+    /* border: 1px solid rgb(5, 255, 109); */
     display: flex;
-    height: 15vh;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 25vh;
     position: fixed;
     bottom: 20vh;
-
+    font-size: 1.6rem;
 }
+
+.vl {
+    display: flex;
+    text-align: center;
+    border-left: 1px solid #00ffd2;
+    height: 17vh;
+    padding-top: 15px;
+    position: fixed;
+    bottom: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #00ffd2;
+}
+
+.email {
+    writing-mode: vertical-lr;
+    font-size: 1rem;
+}
+
 /* ------------------------------------------ */
 
 
 main {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     width: 90%;
     display: flex;
     flex-direction: column;
-}
-
-section {
-    border: 1px solid red;
 }
 
 /* --------------------------Welcome section with intro */
@@ -165,6 +197,8 @@ section {
 #about {
     display: flex;
     /* height: 100vh; */
+    padding-top: 10vh;
+    padding-bottom: 10vh;
     padding-left: 10vw;
     padding-right: 10vw;
     border: 1px solid green;
@@ -199,14 +233,21 @@ section {
 #stack {
     border: 1px solid blue;
     width: 100%;
-    height: 5vh;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 3rem;
 }
 /* ------------------------------------------ */
 
 /* -----------------------Section with my projects */
 
 #projects {
+    border: 1px solid green;
     display: flex;
+    padding-top: 10vh;
+    padding-bottom: 10vh;
     padding-left: 10vw;
     padding-right: 10vw;
 }
@@ -214,7 +255,7 @@ section {
 .card-project {
     border: 1px solid blue;
     display: flex;
-    margin-top: 50px;
+    /* margin-top: 50px; */
 }
 
 
@@ -231,15 +272,21 @@ section {
 /* -----------------------Section with my contacts */
 #contacts {
     display: flex;
+    padding-top: 10vh;
+    padding-bottom: 10vh;
     padding-left: 10vw;
     padding-right: 10vw;
     border: 1px solid blue;
 }
 
-/* #bt-hello {
-    display: flex;
-    justify-content: center;
-} */
+#cont-text {
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+}
+
+#bt-hello {
+    width: 15vw;
+}
 
 /* ---------------------------Footer */
 
@@ -247,7 +294,7 @@ footer {
     display: flex;
     flex-direction: column;
     height: 50px;
-    border: 1px solid purple;
+    /* border: 1px solid purple; */
     margin-top: 5px;
     justify-content: center;
     align-items: center;

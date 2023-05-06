@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/cb4b69401d.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
     <title>Portfolio</title>
 </head>
@@ -12,7 +13,7 @@
     <!-- Header with Logo, NavBar and Button for Downloading CV -->
     <header>
         <div class="logo">
-            <img src="img/logo.png" alt="Logo">
+            <img id="logo-pic" src="logo.png" alt="Logo">
         </div>
         <nav>
             <ul>
@@ -32,8 +33,12 @@
         <!-- aside column for socials icons with links to it -->
         <aside class="socials">
             <div id="icons">
-                icons
+                <a href="https://github.com/ilyanosovsky" class="fa-brands fa-github"></a>
+                <a href="https://www.instagram.com/ilyanosovsky/" class="fa-brands fa-instagram"></a>
+                <a href="https://www.facebook.com/ilya.nosovsky/" class="fa-brands fa-facebook"></a>
+                <a href="https://www.linkedin.com/in/ilya-nosovskiy-b1ba86262/" class="fa-brands fa-linkedin"></a>
             </div>
+            <div class="vl"></div>
         </aside>
 
         <!-- main part of the page with sections -->
@@ -57,7 +62,15 @@
                         <img id="ava" src="ava.png" alt="avatar">                        
                     </div>
                     <div id="stack">
-                        Technical Stack
+                        <i class="fa-brands fa-html5"></i>
+                        <i class="fa-brands fa-css3-alt"></i>
+                        <i class="fa-brands fa-square-js"></i>
+                        <i class="fa-brands fa-node-js"></i>
+                        <i class="fa-brands fa-python"></i>
+                        <i class="fa-brands fa-react"></i>
+                        <i class="fa-brands fa-bootstrap"></i>
+                        <i class="fa-brands fa-figma"></i>
+                        <i class="fa-brands fa-git-alt"></i>
                     </div>
                 </div>
             </section>
@@ -88,7 +101,8 @@
                             <h3>Name of the project</h3>
                             <p>Short description</p>
                             <div>
-                                Technologies used
+                                <i class="fa-brands fa-html5"></i>
+                                <i class="fa-brands fa-css3-alt"></i>
                             </div>
                         </div>
                     </div>
@@ -98,18 +112,21 @@
 
             <!-- Sections with my contacts -->
             <section id="contacts">
-                <div>
+                <div class="cont-box">
                     <h2><span>03.</span> What's next?</h2>
                     <h3>Get In Touch</h3>
-                    <p>Although I'm not currently looking for any new opportunities, my inbox is always open. Whether you have a question or just want to say hi, I’ll try my best to get back to you!</p>
+                    <p id="cont-text">Although I'm not currently looking for any new opportunities, my inbox is always open. Whether you have a question or just want to say hi, I'll try my best to get back to you!</p>
                     <button id="bt-hello">say hello</button>
                 </div>
             </section>
         </main>
 
         <!-- aside column with fixed numbers (like a rout to my sections by numbers) -->
-        <aside class="numbers">
-            Fixed Numbers
+        <aside class="socials">
+            <div id="icons">
+                <a href="mailto:imnosovsky@gmail.com" class="email">imnosovsky@gmail.com</a>
+            </div>
+            <div class="vl"></div>
         </aside>
 
     </article>
