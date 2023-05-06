@@ -116,10 +116,22 @@ section {
 
 /* --------------------------About section with info */
 
-.about {
+#about {
     display: flex;
-    /* height: 100vh; */
+    height: 100vh;
+    padding-left: 10vw;
+    padding-right: 10vw;
     border: 1px solid green;
+    align-items: center;
+}
+
+.info {
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    border: 1px solid blue; */
 }
 
 
