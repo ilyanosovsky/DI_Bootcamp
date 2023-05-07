@@ -20,3 +20,28 @@ print("That is " + str(float(miles) * 1.60934) + " kilometers!")
 first_name = input("What is your first name? ")
 last_name = input("What is your last name? ")
 print("Your full name is " + first_name + " " + last_name + "!")
+
+# Here is a table of prices for a wedding catering company:
+
+# # of guests	price
+# Up to 50 people	$4,000
+# Up to 100 people	$10,000
+# Up to 200 people	$15,000
+# More than 200 people	$20,000
+
+# 📝 Instructions:
+
+# Please write an program that prompts the user for the number of people attending their wedding and prints the corresponding price in the console.
+# For example, if the user says that 20 people are attending to the wedding, it must cost $4,000 dollars.
+
+guests = int(input("How many guests? "))
+if guests <= 50:
+    print("$4,000")
+elif guests <= 100:
+    print("$10,000")
+elif guests <= 200:
+    print("$15,000")
+else:
+    print("$20,000")
+
+    
