@@ -32,3 +32,45 @@ if name in names:
 else:
     print("Name not in list.")
 
+# Exercise 4: Greatest Number
+# Instructions
+# Ask the user for 3 numbers and print the greatest number.
+
+num1 = int(input("Enter first number: "))
+num2 = int(input("Enter second number: "))
+num3 = int(input("Enter third number: "))
+if num1 > num2 and num1 > num3:
+    print(f"{num1} is the greatest number")
+elif num2 > num1 and num2 > num3:
+    print(f"{num2} is the greatest number")
+else:
+    print(f"{num3} is the greatest number")
+
+# Exercise 5: The Alphabet
+# Instructions
+# Create a string of all the letters in the alphabet
+# Loop over each letter and print a message that contains the letter and whether its a vowel or a consonant.    
+
+alphabet = range("a", "z")
+for i in alphabet:
+    if i == "a" or i == "e" or i == "i" or i == "o" or i == "u":
+        print(f"{i} is a vowel")
+    else:
+        print(f"{i} is a consonant")
+
+# Exercise 6: Words And Letters
+# Instructions
+# Ask a user for 7 words, store them in a list named words.
+# Ask the user for a single character, store it in a variable called letter.
+# Loop through the words list and print the index of the first appearence of the letter variable in each word of the list.
+# If the letter doesn’t exist in one of the words, print a friendly message with the word and the letter.
+
+words = []
+for i in range(7):
+    words.append(input("Enter a word: "))
+letter = input("Enter a letter: ")
+for i in words:
+    if letter in i:
+        print(i.index(letter))
+    else:
+        print(f"{letter} is not in {i}")
