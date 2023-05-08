@@ -129,14 +129,14 @@ else:
 
 
 # if int(birthday_list[2]) == 2 and int(birthday_list[0]) == 29:
-#     print("        ___iiiii___")
+#     print("        ___________")
 #     print("       |:H:a:p:p:y:|")
 #     print("     __|___________|__")
 #     print("    |^^^^^^^^^^^^^^^^^|")
 #     print("    |:B:i:r:t:h:d:a:y:|")
 #     print("    |                 |")
 #     print("    ~~~~~~~~~~~~~~~~~~~")
-#     print("        ___iiiii___")
+#     print("        ___________")
 #     print("       |:H:a:p:p:y:|")
 #     print("     __|___________|__")
 #     print("    |^^^^^^^^^^^^^^^^^|")
