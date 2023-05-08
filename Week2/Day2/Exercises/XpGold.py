@@ -74,3 +74,63 @@ for i in words:
         print(i.index(letter))
     else:
         print(f"{letter} is not in {i}")
+
+# Exercise 7:
+# Instructions
+# Create a list of numbers from one to one million and then use min() and max() to make sure your list actually 
+# starts at one and ends at one million. Use the sum() function to see how quickly Python can add a million numbers.        
+
+numbers =range(1, 1000001)
+print(min(numbers))
+print(max(numbers))
+print(sum(numbers))
+
+# Exercise 8 : List And Tuple
+# Instructions
+# Write a program which accepts a sequence of comma-separated numbers. Generate a list and a tuple which contain every number.
+
+numbers = input("Enter a sequence of comma-separated numbers: ")
+list1 = numbers.split(",")
+tuple1 = tuple(list1)
+print(list1)
+print(tuple1)
+
+# Exercise 9 : Random Number
+# Instructions
+# Ask the user to input a number from 1 to 9 (including).
+# Get a random number between 1 and 9. Hint: random module.
+# If the user guesses the correct number print a message that says Winner.
+# If the user guesses the wrong number print a message that says better luck next time.
+# Bonus: use a loop that allows the user to keep guessing until they want to quit.
+# Bonus 2: on exiting the loop tally up and display total games won and lost.
+
+import random
+number = int(input("Write any number from 1 to 9: "))
+random_number = random.randrange(1, 10)
+if number == random_number :
+    print("Your guess is correct, You are the Winner")
+else:
+    print(f"Better luck next time, number was: {random_number}") 
+
+
+
+import random
+winners = 0
+losers = 0
+number = input("Write any number from 1 to 9: ")
+random_number = random.randrange(1, 10)
+while number != "quit":
+    if int(number) == random_number :
+        print("Your guess is correct, You are the Winner")
+        winners += 1
+    else:
+        print(f"Better luck next time, number was: {random_number}")
+        losers += 1
+    number = input("Write any number from 1 to 9: ")
+    random_number = random.randrange(1, 10)
+print(f"Total games won: {winners}")
+print(f"Total games lost: {losers}")
+
+
+
+
