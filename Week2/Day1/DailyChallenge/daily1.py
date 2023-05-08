@@ -5,6 +5,17 @@
 
 # Then, print the first and last characters of the given text.
 
+text = input("Enter a string: ")
+if len(text) < 10:
+    print("String not long enough.")
+elif len(text) > 10:
+    print("String too long.")
+else:
+    print(f"First character: {text[0]}")
+    print(f"Last character: {text[-1]}")
+
+
+
 # Using a for loop, construct the string character by character: Print the first character, then the second, then the third, until the full string is printed. For example:
 # The user enters "Hello World"
 # Then, you have to construct the string character by character
