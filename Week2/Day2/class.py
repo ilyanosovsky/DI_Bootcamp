@@ -86,23 +86,32 @@
 # use a loop that allows the user to keep guessing until they want to quit.
 # on exiting the loop tally up and display total games won and lost.
 
-import random
-winners = 0
-losers = 0
-number = input("Write any number from 1 to 9: ")
-random_number = random.randrange(1, 10)
-while number != "quit":
-    if int(number) == random_number :
-        print("Your guess is correct, You are the Winner")
-        winners += 1
-    else:
-        print(f"Better luck next time, number was: {random_number}")
-        losers += 1
-    number = input("Write any number from 1 to 9: ")
-    random_number = random.randrange(1, 10)
-print(f"Total games won: {winners}")
-print(f"Total games lost: {losers}")
+# import random
+# winners = 0
+# losers = 0
+# number = input("Write any number from 1 to 9: ")
+# random_number = random.randrange(1, 10)
+# while number != "quit":
+#     if int(number) == random_number :
+#         print("Your guess is correct, You are the Winner")
+#         winners += 1
+#     else:
+#         print(f"Better luck next time, number was: {random_number}")
+#         losers += 1
+#     number = input("Write any number from 1 to 9: ")
+#     random_number = random.randrange(1, 10)
+# print(f"Total games won: {winners}")
+# print(f"Total games lost: {losers}")
 
+
+toppings = []
+topping = input("What topping would you like? ")
+while topping != "quit":
+    toppings.append(topping)
+    print("I'll add that topping to your pizza.")
+    topping = input("What topping would you like? ")
+print("Your pizza has the following toppings: " + " ,".join(toppings))
+print("The total price is: " + str(10 + 2.5 * len(toppings)))
 
 
 

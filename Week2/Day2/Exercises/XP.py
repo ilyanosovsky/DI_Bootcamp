@@ -109,7 +109,7 @@ while topping != "quit":
     toppings.append(topping)
     print("I'll add that topping to your pizza.")
     topping = input("What topping would you like? ")
-print("Your pizza has the following toppings: " + str(toppings))
+print("Your pizza has the following toppings: " + " ,".join(toppings))
 print("The total price is: " + str(10 + 2.5 * len(toppings)))
 
 
