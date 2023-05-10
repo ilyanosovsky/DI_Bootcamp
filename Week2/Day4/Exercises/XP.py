@@ -127,11 +127,149 @@ make_great(magician_names)
 
 
 
-Exercise 7 : Temperature Advice
-Instructions
-Create a function called get_random_temp().
-This function should return an integer between -10 and 40 degrees (Celsius), selected at random.
-Test your function to make sure it generates expected results.
+# Exercise 7 : Temperature Advice
+# Instructions
+# Create a function called get_random_temp().
+# This function should return an integer between -10 and 40 degrees (Celsius), selected at random.
+# Test your function to make sure it generates expected results.
 
 import random
 def get_random_temp():
+    random_temp = random.randint(-10, 40)
+    return random_temp
+print(get_random_temp())
+
+
+# Create a function called main().
+# Inside this function, call get_random_temp() to get a temperature, and store its value in a variable.
+# Inform the user of the temperature in a friendly message, eg. “The temperature right now is 32 degrees Celsius.”
+
+def main():
+    random_temp = get_random_temp()
+    print(f"The temperature right now is {random_temp} degrees Celsius.")
+main()
+
+
+
+# Let’s add more functionality to the main() function. Write some friendly advice relating to the temperature:
+# below zero (eg. “Brrr, that’s freezing! Wear some extra layers today”)
+# between zero and 16 (eg. “Quite chilly! Don’t forget your coat”)
+# between 16 and 23
+# between 24 and 32
+# between 32 and 40
+
+
+def main():
+    random_temp = get_random_temp()
+    print(f"The temperature right now is {random_temp} degrees Celsius.")
+    if random_temp < 0:
+        print("Brrr, that's freezing! Wear some extra layers today")
+    elif random_temp >= 0 and random_temp < 16:
+        print("Quite chilly! Don't forget your coat")
+    elif random_temp >= 16 and random_temp < 24:
+        print("Nice weather")
+    elif random_temp >= 24 and random_temp < 32:
+        print("It's hot")
+    elif random_temp >= 32 and random_temp < 40:
+        print("It's very hot")
+main()
+
+
+
+
+# Change the get_random_temp() function:
+# Add a parameter to the function, named ‘season’.
+# Inside the function, instead of simply generating a random number between -10 and 40, set lower and upper limits based on the season, eg. if season is ‘winter’, temperatures should only fall between -10 and 16.
+# Now that we’ve changed get_random_temp(), let’s change the main() function:
+# Before calling get_random_temp(), we will need to decide on a season, so that we can call the function correctly. Ask the user to type in a season - ‘summer’, ‘autumn’ (you can use ‘fall’ if you prefer), ‘winter’, or ‘spring’.
+# Use the season as an argument when calling get_random_temp().
+
+import random
+def get_random_temp(season):
+    if season == "winter":
+        random_temp = random.randint(-10, 16)
+    elif season == "summer":
+        random_temp = random.randint(16, 40)
+    return random_temp
+print(get_random_temp("winter"))
+
+def main():
+    season = input("Enter a season: ")
+    random_temp = get_random_temp(season)
+    print(f"The temperature right now is {random_temp} degrees Celsius.")
+    if random_temp < 0:
+        print("Brrr, that's freezing! Wear some extra layers today")
+    elif random_temp >= 0 and random_temp < 16:
+        print("Quite chilly! Don't forget your coat")
+    elif random_temp >= 16 and random_temp < 24:
+        print("Nice weather")
+    elif random_temp >= 24 and random_temp < 32:
+        print("It's hot")
+    elif random_temp >= 32 and random_temp < 40:
+        print("It's very hot")
+main()
+
+# Bonus: Give the temperature as a floating-point number instead of an integer.
+
+import random
+def get_random_temp(season):
+    if season == "winter":
+        random_temp = float(random.randint(-10, 16))
+    elif season == "summer":
+        random_temp = float(random.randint(16, 40))
+    return random_temp
+print(get_random_temp("winter"))
+
+def main():
+    season = input("Enter a season: ")
+    random_temp = get_random_temp(season)
+    print(f"The temperature right now is {random_temp} degrees Celsius.")
+    if random_temp < 0:
+        print("Brrr, that's freezing! Wear some extra layers today")
+    elif random_temp >= 0 and random_temp < 16:
+        print("Quite chilly! Don't forget your coat")
+    elif random_temp >= 16 and random_temp < 24:
+        print("Nice weather")
+    elif random_temp >= 24 and random_temp < 32:
+        print("It's hot")
+    elif random_temp >= 32 and random_temp < 40:
+        print("It's very hot")
+main()
+
+
+
+# Bonus: Instead of asking for the season, ask the user for the number of the month (1 = January, 12 = December). Determine the season according to the month.
+
+import random
+def get_random_temp(season):
+    if season == "winter":
+        random_temp = float(random.randint(-10, 16))
+    elif season == "summer":
+        random_temp = float(random.randint(16, 40))
+    return random_temp
+print(get_random_temp("winter"))
+
+def main():
+    month = int(input("Enter a month: "))
+    if month >= 1 and month <= 3:
+        season = "winter"
+    elif month >= 4 and month <= 6:
+        season = "spring"
+    elif month >= 7 and month <= 9:
+        season = "summer"
+    elif month >= 10 and month <= 12:
+        season = "autumn"
+    random_temp = get_random_temp(season)
+    print(f"The temperature right now is {random_temp} degrees Celsius.")
+    if random_temp < 0:
+        print("Brrr, that's freezing! Wear some extra layers today")
+    elif random_temp >= 0 and random_temp < 16:
+        print("Quite chilly! Don't forget your coat")
+    elif random_temp >= 16 and random_temp < 24:
+        print("Nice weather")
+    elif random_temp >= 24 and random_temp < 32:
+        print("It's hot")
+    elif random_temp >= 32 and random_temp < 40:
+        print("It's very hot")
+main()
+
