@@ -5,23 +5,17 @@
 # For example, get_full_name(first_name="john", middle_name="hooker", last_name="lee") will return John Hooker Lee.
 # But get_full_name(first_name="bruce", last_name="lee") will return Bruce Lee.
 
-# full_name = ""
-# def get_full_name(first_name, middle_name, last_name):
-#     first_name = input("Enter your first name: ")
-#     middle_name = input("Enter your middle name (optional): ")
-#     last_name = input("Enter your last name: ")
-#     full_name = first_name + middle_name + last_name
-#     print(full_name)
+def get_full_name(first_name,last_name, middle_name=""):
+    count = 1
+    full_name = ''
+    for name in (first_name, middle_name, last_name):
+        full_name += name.capitalize()
+        if name and count !=3: full_name += ' '
+        count += 1
+    return (full_name)
 
-# get_full_name(full_name)
+print(get_full_name(first_name="bruce", last_name="lee"))
+print(get_full_name(first_name="john", middle_name="hooker", last_name="lee"))
 
-full_name = ""
-def get_full_name(first_name, middle_name, last_name):
-    first_name="john"
-    middle_name="hooker"
-    last_name="lee"
-    full_name = first_name + middle_name + last_name
-    print(full_name)
 
-get_full_name(full_name)
 
