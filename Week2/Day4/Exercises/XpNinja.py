@@ -17,5 +17,14 @@ def get_full_name(first_name,last_name, middle_name=""):
 print(get_full_name(first_name="bruce", last_name="lee"))
 print(get_full_name(first_name="john", middle_name="hooker", last_name="lee"))
 
+# Exercise 2 : From English To Morse
+# Instructions
+# Write a function that converts English text to morse code and another one that does the opposite.
+# Hint: Check the internet for a translation table, every letter is separated with a space and every word is separated with a slash /.
 
+ENGLISH = 'A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 1 2 3 4 5 6 7 8 9 0'
+MORSE = '·−  −···  −·−·  −··  ·  ··−·  −−·  ····  ··  ·−−−  −·−  ·−··  −−  −·  −−−  ·−−·  −−·−  ·−·  ···  −  ··−  ···−  ·−−  −··−  −·−−  −−··  ·−−−−  ··−−−  ···−−  ····−  ·····  −····  −−···  −−−··  −−−−·  −−−−−'
+
+def to_morse(text):
+    dictionary = dict(zip(ENGLISH.split(), MORSE.split()))
 
