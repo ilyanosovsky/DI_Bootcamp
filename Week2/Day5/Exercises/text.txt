@@ -1,0 +1,57 @@
+What should i do at the beginning? 
+
+1. Display the board. 
+    1) Draw a board by symbols 
+    2) 3 squers by 3 squers 
+    3) we should put it in a function called display_board()
+    4) this function will show yhe board every time you play 
+    5) Board can be a List with 3 rows and 3 columns 
+
+2.  To get the position from the player.
+    1) We have 2 players. First for X, Second for O 
+    2) We need a function player_input(player) to get ROW and COLUMN from Player 
+    3) We will get Indexes [0][0] - to put mark in specific place 
+
+
+display_board()
+
+print stars
+loop on the board 
+print strs
+
+----> print board 
+
+player_input(player)
+
+
+--> check that user doesnt input a place that is already take 
+--> check that row and column are in in the range of the board 
+
+-> if already taken or wrong number : ask again -> while loop 
+
+--> only when its OK append it inside board 
+
+
+board = [
+    ["", "X", ""],
+    ["", "", ""],
+    ["", "", ""]
+]
+
+--> display board again 
+
+----> determine which turn is it 
+1 - maximum turn is 9 --> while loop until 9 / for loop range 9
+2 - turn is odd --> X if the turn is 1 --> X
+3 - turn is even --> O if the turn is 2 --> O 
+
+----> input row and column 
+row : 1 
+col : 2 
+
+display it on the board 
+
+
+check_win() 
+
+in every turn you need to check 

@@ -27,4 +27,4 @@ MORSE = '·−  −···  −·−·  −··  ·  ··−·  −−·  ···�
 
 def to_morse(text):
     dictionary = dict(zip(ENGLISH.split(), MORSE.split()))
-
+    
