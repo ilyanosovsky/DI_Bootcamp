@@ -17,12 +17,70 @@ used_letters = set()
 
 lives = 6
 
+hangman_pics = [
+    """
+       +---+
+           |
+           |
+           |
+          ===
+    """,
+    """
+       +---+
+       O   |
+           |
+           |
+          ===
+    """,
+    """
+       +---+
+       O   |
+       |   |
+           |
+          ===
+    """,
+    """
+       +---+
+       O   |
+      /|   |
+           |
+          ===
+    """,
+    """
+       +---+
+       O   |
+      /|\  |
+           |
+          ===
+    """,
+    """
+       +---+
+       O   |
+      /|\  |
+      /    |
+          ===
+    """,
+    """
+       +---+
+       O   |
+      /|\  |
+      / \  |
+          ===
+    """
+]
+
+def display_hangman(lives):
+    print(hangman_pics[lives])
+
+
 while len(word_letters) > 0 and lives > 0:
+
     print(f"You have {lives} lives left and you have used these letters: {' '.join(used_letters)}")
 
     word_list = [letter if letter in used_letters else '*' for letter in word]
     print('Current word: ', ' '.join(word_list))
 
+    display_hangman(lives)
     user_letter = input('Guess a letter: ').upper()
     if user_letter in alphabet - used_letters:
         used_letters.add(user_letter)
@@ -41,4 +99,4 @@ if lives == 0:
 else:
     print('You guessed the word', word, '!!')
 
-    
+
