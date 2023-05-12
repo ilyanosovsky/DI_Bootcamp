@@ -21,7 +21,7 @@ def display_board(board):
     print("-TIC TAC TOE-")
     print("**1***2***3**    -  Columns")
     for row in board:
-        print("* " + row[0] + " | " + row[1] + " | " + row[2] + " *")
+        print("* "  + row[0] + " | " + row[1] + " | " + row[2] + " *")
         print("*---|---|---*")
     print("*************")
 
@@ -44,7 +44,7 @@ def get_user_input():
                 return row, col
         except ValueError:
             print("Invalid input. Please enter integer values between 1 and 3.")
-
+# try: and except: are a way to handle errors in a more controlled way than simply letting the program crash.
 
 def is_valid_move(board, row, col):
     if row < 0 or row > 2 or col < 0 or col > 2:
@@ -79,7 +79,8 @@ def check_winner(board):
 
 
 def play_game():
-    board = [        [' ', ' ', ' '],
+    board = [ 
+        [' ', ' ', ' '],
         [' ', ' ', ' '],
         [' ', ' ', ' '],
     ]
