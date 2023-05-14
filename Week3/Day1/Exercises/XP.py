@@ -15,6 +15,8 @@ cat1 = Cat("Tom", 1)
 cat2 = Cat("John", 3)
 cat3 = Cat("Jerry", 5)
 
+
+
 def oldest_cat(*args):
     oldest = args[0]
     for cat in args:
@@ -63,4 +65,101 @@ if davids_dog.height > sarahs_dog.height:
 else:
     print(f"{sarahs_dog.name} is bigger")
 
+
+# Exercise 3 : Who’s The Song Producer?
+# Instructions
+# Define a class called Song, it will show the lyrics of a song.
+# Its __init__() method should have two arguments: self and lyrics (a list).
+# Inside your class create a method called sing_me_a_song that prints each element of lyrics on its own line.
+# Create an object, for example:
+
+# stairway= Song(["There’s a lady who's sure","all that glitters is gold", "and she’s buying a stairway to heaven"])
+
+
+# Then, call the sing_me_a_song method. The output should be:
+
+# There’s a lady who's sure
+# all that glitters is gold
+# and she’s buying a stairway to heaven
+
+class Song:
+    def __init__(self, lyrics):
+        self.lyrics = lyrics
     
+    def sing_me_a_song(self):
+        for line in self.lyrics:
+            print(line)
+
+stairway= Song(["There's a lady who's sure","all that glitters is gold", "and she's buying a stairway to heaven"])
+stairway.sing_me_a_song()
+
+# Exercise 4 : Afternoon At The Zoo
+# Instructions
+# Create a class called Zoo.
+# In this class create a method __init__ that takes one parameter: zoo_name.
+# It instantiates two attributes: animals (an empty list) and name (name of the zoo).
+# Create a method called add_animal that takes one parameter new_animal. This method adds the new_animal to the animals list as long as it isn’t already in the list.
+# Create a method called get_animals that prints all the animals of the zoo.
+# Create a method called sell_animal that takes one parameter animal_sold. This method removes the animal from the list and of course the animal needs to exist in the list.
+
+
+class Zoo:
+    def __init__(self, zoo_name):
+        self.animals = []
+        self.name = zoo_name
+
+    def add_animal(self, new_animal):
+        if new_animal not in self.animals:
+            self.animals.append(new_animal)
+
+    def get_animals(self):
+        print(self.animals)
+
+    def sell_animal(self, animal_sold):
+        if animal_sold in self.animals:
+            self.animals.remove(animal_sold)
+
+# Create a method called sort_animals that sorts the animals alphabetically and groups them together based on their first letter.
+# Example
+
+# { 
+#     1: "Ape",
+#     2: ["Baboon", "Bear"],
+#     3: ['Cat', 'Cougar'],
+#     4: ['Eel', 'Emu']
+# }
+
+    def sort_animals(self):
+        self.animals.sort()
+        animals_dict = {}
+        for animal in self.animals:
+            if animal[0] not in animals_dict:
+                animals_dict[animal[0]] = [animal]
+            else:
+                animals_dict[animal[0]].append(animal)
+        print(animals_dict)
+
+    def get_groups(self):
+        print(self.animals)
+
+ramat_gan_safari = Zoo("Ramat Gan Safari")
+ramat_gan_safari.add_animal("Lion")
+ramat_gan_safari.add_animal("Tiger")
+ramat_gan_safari.add_animal("Bear")
+ramat_gan_safari.add_animal("Elephant")
+ramat_gan_safari.add_animal("Giraffe")
+ramat_gan_safari.add_animal("Monkey")
+ramat_gan_safari.add_animal("Snake")
+
+ramat_gan_safari.get_animals()
+ramat_gan_safari.sell_animal("Snake")
+ramat_gan_safari.get_animals()
+ramat_gan_safari.sort_animals()
+ramat_gan_safari.get_groups()
+
+
+
+
+
+
+
