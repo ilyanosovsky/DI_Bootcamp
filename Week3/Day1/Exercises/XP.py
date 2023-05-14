@@ -139,6 +139,24 @@ class Zoo:
                 animals_dict[animal[0]].append(animal)
         print(animals_dict)
 
+
+
+    # def sort_animals(self):
+    #     self.animals.sort()
+    #     animals_dict = {}
+    #     index = 1
+    #     for animal in self.animals:
+    #         key = animal[0]
+    #         if key not in animals_dict:
+    #             animals_dict[key] = {index: [animal]}
+    #             index += 1
+    #         else:
+    #             animals_dict[key][index] = animal
+    #             index += 1
+    #     print(animals_dict)
+
+
+
     def get_groups(self):
         print(self.animals)
 
