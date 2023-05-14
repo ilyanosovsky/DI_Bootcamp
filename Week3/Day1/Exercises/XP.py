@@ -148,7 +148,7 @@ ramat_gan_safari.add_animal("Tiger")
 ramat_gan_safari.add_animal("Bear")
 ramat_gan_safari.add_animal("Elephant")
 ramat_gan_safari.add_animal("Giraffe")
-ramat_gan_safari.add_animal("Boa")
+ramat_gan_safari.add_animal("Lisard")
 ramat_gan_safari.add_animal("Snake")
 
 ramat_gan_safari.get_animals()
