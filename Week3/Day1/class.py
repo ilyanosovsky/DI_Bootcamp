@@ -108,13 +108,28 @@ class Employee :
     def get_promotion(self, promotion_amount):
         self.salary += promotion_amount
 
-user1 = Employee("Lea", "Smith", 30, "developer", 30000)
-user2 = Employee("David", "Schartz", 20, "project manager", 20000)
 
-print(f"User1 fullname: {user1.get_fullname()} and age: {user1.age} and job: {user1.job} and salary: {user1.salary}")
-print(f"User2 fullname: {user2.get_fullname()} and age: {user2.age} and job: {user2.job} and salary: {user2.salary}")
+# user1 = Employee("Lea", "Smith", 30, "developer", 30000)
+# user2 = Employee("David", "Schartz", 20, "project manager", 20000)
 
+# print(f"User1 fullname: {user1.get_fullname()} and age: {user1.age} and job: {user1.job} and salary: {user1.salary}")
+# print(f"User2 fullname: {user2.get_fullname()} and age: {user2.age} and job: {user2.job} and salary: {user2.salary}")
+# user1.get_promotion(1000)
+# user1.happy_birthday()
+# print(f"User1 fullname: {user1.get_fullname()} and age: {user1.age} and job: {user1.job} and salary: {user1.salary}")
 
+import random
 
+def game () :
+    lst_names = ["Tom", "John", "Jerry"]
+    lst_lastnames = ["Smith", "Schartz", "Garcia"]
+    lst_jobs = ["developer", "project manager", "designer"]
 
+    all_employees = []
 
+    for i in range(10):
+        new_employee = Employee(random.choice(lst_names), random.choice(lst_lastnames), random.randint(18, 65), random.choice(lst_jobs), random.randint(10000, 50000))
+        print(f"User{i+1} fullname: {new_employee.get_fullname()} and age: {new_employee.age} and job: {new_employee.job} and salary: {new_employee.salary}")
+        # all_employees.append(new_employee)
+
+game()
