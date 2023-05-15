@@ -139,6 +139,15 @@ class Zoo:
                 animals_dict[animal[0]].append(animal)
         print(animals_dict)
 
+    # def sort_animals(self):
+    #     sorted_list_animals = sorted(self.animals)
+    #     first_letter = self.animals[0][0]
+    #     counter = 1
+    #     for animal in animals :
+    #         if animal[0] == first_letter :
+    #             dict_animals[counter] = animal
+    #         else :
+    #             first_letter == animal[0]
     
 
 
