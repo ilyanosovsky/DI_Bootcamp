@@ -129,42 +129,23 @@ class Zoo:
 #     4: ['Eel', 'Emu']
 # }
 
-    def sort_animals(self):
-        self.animals.sort()
-        animals_dict = {}
-        for animal in self.animals:
-            if animal[0] not in animals_dict:
-                animals_dict[animal[0]] = [animal]
-            else:
-                animals_dict[animal[0]].append(animal)
-        print(animals_dict)
-
-    # def sort_animals(self):
-    #     sorted_list_animals = sorted(self.animals)
-    #     first_letter = self.animals[0][0]
-    #     counter = 1
-    #     for animal in animals :
-    #         if animal[0] == first_letter :
-    #             dict_animals[counter] = animal
-    #         else :
-    #             first_letter == animal[0]
-    
-
-
-
-    # def sort_animals(self):
-    #     self.animals.sort()
-    #     animals_dict = {}
-    #     index = 1
-    #     for animal in self.animals:
-    #         key = animal[0]
-    #         if key not in animals_dict:
-    #             animals_dict[key] = {index: [animal]}
-    #             index += 1
-    #         else:
-    #             animals_dict[key][index] = animal
-    #             index += 1
-    #     print(animals_dict)
+    def sort_animals (self) :
+        print(f"{self.name} Farm")
+        sorted_animals = sorted(self.animals)
+        index = 1
+        final = {}
+        current_letter = sorted_animals[0][0]
+        for animal in sorted_animals:
+            if animal[0] != current_letter :
+                index += 1
+                current_letter = animal[0]
+            if index in final :
+                if isinstance(final[index], list) == False:
+                    final[index] = [final[index]]
+                final[index].append(animal)
+            else :
+                final[index] = animal
+        print(final)
 
 
 
