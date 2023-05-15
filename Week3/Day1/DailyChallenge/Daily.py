@@ -46,13 +46,34 @@ class Farm:
         info += "E-I-E-I-0!"
         return info
     
+    def get_animal_types(self):
+        all_keys = list(self.animals.keys())
+        return sorted(all_keys) # ['cow', 'goat', 'sheep']
+    
+    def get_short_info(self):
+        all_keys_animals = self.get_animal_types()    
+        for animal, amount in self.animals.items():
+            if amount > 1:
+                position_animal = all_keys_animals.index(animal)
+                all_keys_animals[position_animal] += "s"
+        joining_animals = ", ".join(all_keys_animals[:-1])
+        sentence = f"{self.name}'s Farm has {joining_animals} and {all_keys_animals[-1]}."  
+        print(sentence)
+    
+
+
+    
 macdonald = Farm("McDonald")
 macdonald.add_animal('cow',5)
 macdonald.add_animal('sheep')
-macdonald.add_animal('sheep')
 macdonald.add_animal('goat', 12)
 print(macdonald.get_info())
+macdonald.get_short_info()
 
+# Expand The Farm
+# Add a method called get_animal_types to the Farm class. This method should return a sorted list of all the animal types (names) in the farm. With the example above, the list should be: ['cow', 'goat', 'sheep'].
+
+# Add another method to the Farm class called get_short_info. This method should return the following string: “McDonald’s farm has cows, goats and sheep.”. The method should call the get_animal_types function to get a list of the animals.
 
 
     

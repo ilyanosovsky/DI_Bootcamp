@@ -139,6 +139,8 @@ class Zoo:
                 animals_dict[animal[0]].append(animal)
         print(animals_dict)
 
+    
+
 
 
     # def sort_animals(self):
