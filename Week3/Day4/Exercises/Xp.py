@@ -35,8 +35,8 @@ def get_random_sentence(length):
 
 def main():
     print("This program generates a random sentence.")
-    length = int(input("How long should the sentence be? (2-20) "))
     try:
+        length = int(input("How long should the sentence be? (2-20) "))
         if length < 2 or length > 20:
             raise ValueError("The length must be between 2 and 20.")
         print(get_random_sentence(length))
