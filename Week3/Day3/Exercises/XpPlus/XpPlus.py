@@ -120,15 +120,33 @@ age_on_jupiter(1000000000)
 # Create an empty list called users. Tip: It should be a list of dictionaries.
 # Create a function that adds new dictionaries to the users list. Each user has the following keys: name, adress, langage_code. Use faker to populate them with fake data.
 
+# from faker import Faker
+
+# users = []
+
+# def add_user():
+#     fake = Faker.Faker()
+#     users.append({"name": fake.name(), "address": fake.address(), "language_code": fake.language_code()})
+#     print(users)
+
+# add_user()
+
 from faker import Faker
 
+fake = Faker()
 users = []
 
 def add_user():
-    fake = Faker.Faker()
-    users.append({"name": fake.name(), "address": fake.address(), "language_code": fake.language_code()})
-    print(users)
+    user = {
+        'name': fake.name(),
+        'address': fake.address(),
+        'language_code': fake.language_code()
+    }
+    return user
 
-add_user()
+for i in range(10):
+    users.append(add_user())    
+
+print(users)
 
 

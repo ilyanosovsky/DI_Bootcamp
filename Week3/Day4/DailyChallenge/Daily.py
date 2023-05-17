@@ -56,26 +56,60 @@ class Text:
 # Now, use the provided the_stranger.txt file and try using the class you created above.
 
 
-    # @classmethod
-    # def from_file(cls, file):
-    #     with open(file, "r") as f:
-    #         text = f.read()
-    #     return cls(text)
+    @classmethod
+    def from_file(cls, file):
+        with open(file, "r") as f:
+            text = f.read()
+        return cls(text)
     
-import os
-# dir_path = os.path.dirname(os.path.realpath(__file__))
 
-# with open((dir_path+"\\the_stranger.txt"), "r") as text:
-#      print(text.read())
+text = Text.from_file("/Users/ilyanosovsky/Documents/Developers_institute/DI_Bootcamp/Week3/Day4/DailyChallenge/the_stranger.txt")
 
 
-# text = Text.from_file("the_stranger.txt")
-# text.frequency("the")
-# text.most_common()
-# text.unique_words()
+# Bonus:
+# Create a class called TextModification that inherits from Text.
 
-print(os.getcwd())
+# Implement the following methods:
+# a method that returns the text without any punctuation.
+# a method that returns the text without any english stop-words (check out what this is !!).
+# a method that returns the text without any special characters.
+# Note: Feel free to implement/create any attribute, method or function needed to make this work, be creative :)
 
+class TextModification(Text):
+    def __init__(self, text):
+        super().__init__(text)
+
+    def remove_punctuation(self):
+        punctuation = '''!;:,.?'''
+        for char in self.text:
+            if char in punctuation:
+                self.text = self.text.replace(char, "")
+        print(self.text)
+        return self.text
+    
+    def remove_stop_words(self):
+        with open("/Users/ilyanosovsky/Documents/Developers_institute/DI_Bootcamp/Week3/Day4/DailyChallenge/stop_words.txt", "r") as f:
+            stop_words = f.read().split()
+        words = self.text.split()
+        for word in words:
+            if word in stop_words:
+                words.remove(word)
+        self.text = " ".join(words)
+        print(self.text)
+        return self.text
+    
+    def remove_special_characters(self):
+        special_characters = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
+        for char in self.text:
+            if char in special_characters:
+                self.text = self.text.replace(char, "")
+        print(self.text)
+        return self.text
+    
+text = TextModification.from_file("/Users/ilyanosovsky/Documents/Developers_institute/DI_Bootcamp/Week3/Day4/DailyChallenge/the_stranger.txt")
+text.remove_punctuation()
+text.remove_stop_words()
+text.remove_special_characters()
 
 
 
