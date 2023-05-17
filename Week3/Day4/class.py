@@ -11,11 +11,22 @@
 
 def colorize(text, color):
     colors = ('cyan', 'yellow', 'blue', 'green', 'magenta')
-    if type(text) != str:
-        raise TypeError("Text must be a string")
-    if color not in colors:
-        raise ValueError("Color is invalid color")
-    print(f"Printed {text} in {color}")
+    try :
+        if type(text) is not str:
+            raise TypeError("Text must be instance of str")
+
+        if color not in colors:
+            raise ValueError(f"{color} is not a valid color")
+        print(f"Printed {text} in {color}")
+
+    
+    except TypeError as err:
+        print(f"Error: {err}")
+
+    except ValueError as err:
+        print(f"Error: {err}")
+
 
 colorize("hello", "cyan")
 colorize(123, "red")
+colorize("hello", "red")
