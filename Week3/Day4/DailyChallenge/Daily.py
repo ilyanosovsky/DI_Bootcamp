@@ -65,6 +65,10 @@ class Text:
 
 text = Text.from_file("/Users/ilyanosovsky/Documents/Developers_institute/DI_Bootcamp/Week3/Day4/DailyChallenge/the_stranger.txt")
 
+text = Text("A good book would sometimes cost as much as a good house.")
+text.frequency("good")
+text.most_common()
+text.unique_words()
 
 # Bonus:
 # Create a class called TextModification that inherits from Text.
@@ -115,7 +119,4 @@ text.remove_special_characters()
 
 
 
-# text = Text("A good book would sometimes cost as much as a good house.")
-# text.frequency("good")
-# text.most_common()
-# text.unique_words()
+
