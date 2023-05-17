@@ -9,24 +9,29 @@
 # colorize(123, "red")
 # colorize("hello", "red")
 
-def colorize(text, color):
-    colors = ('cyan', 'yellow', 'blue', 'green', 'magenta')
-    try :
-        if type(text) is not str:
-            raise TypeError("Text must be instance of str")
+# def colorize(text, color):
+#     colors = ('cyan', 'yellow', 'blue', 'green', 'magenta')
+#     try :
+#         if type(text) is not str:
+#             raise TypeError("Text must be instance of str")
 
-        if color not in colors:
-            raise ValueError(f"{color} is not a valid color")
-        print(f"Printed {text} in {color}")
+#         if color not in colors:
+#             raise ValueError(f"{color} is not a valid color")
+#         print(f"Printed {text} in {color}")
 
     
-    except TypeError as err:
-        print(f"Error: {err}")
+#     except TypeError as err:
+#         print(f"Error: {err}")
 
-    except ValueError as err:
-        print(f"Error: {err}")
+#     except ValueError as err:
+#         print(f"Error: {err}")
 
 
-colorize("hello", "cyan")
-colorize(123, "red")
-colorize("hello", "red")
+# colorize("hello", "cyan")
+# colorize(123, "red")
+# colorize("hello", "red")
+
+
+import requests
+import json
+
