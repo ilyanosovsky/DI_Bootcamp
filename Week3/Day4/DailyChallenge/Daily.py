@@ -24,9 +24,21 @@ class Text:
 # a method that returns the most common word in the text.
 # a method that returns a list of all the unique words in the text.
 
-    def frequency(self, word):
-        print(f"The word {word} appears {self.text.count(word)} times in the text.")
-        return self.text.count(word)
+    def frequency(self, word):    
+        try: 
+            if type(word) is not str:
+                raise TypeError("The word must be a string.")
+            else:
+                self.text = self.text.replace(".", "").lower()
+                words = self.text.split()
+                amount = words.count(word)
+                if amount == 0:
+                    return None
+                else:
+                    print(f"The word {word} appears {amount} times in the text.")
+        except TypeError as err:
+            print(err)
+
     
     def most_common(self):
         words = self.text.split()
