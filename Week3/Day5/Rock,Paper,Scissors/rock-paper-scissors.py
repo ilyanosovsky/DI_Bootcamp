@@ -71,14 +71,20 @@ def print_results(results):
 
 def main():
     print("Welcome to Rock, Paper, Scissors!")
-    results = []  # To store the results of each game played
+    results = {}  # To store the results of each game played
     choice = ""   # User's menu choice
+
+
     while choice != "3":
         choice = get_user_menu_choice()
         if choice == "1":
             game = Game()
-            game.play()
-            results.append(game.result)
+            # game.play()
+            result = game.play()
+            if result in results:
+                results[result] += 1    # If the result is already in the dictionary, add 1 to the value
+            else:
+                results[result] += 0    
         elif choice == "2":
             print_results(results)
         else:

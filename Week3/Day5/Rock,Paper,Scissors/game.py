@@ -14,9 +14,9 @@ class Game:
 
     @staticmethod
     def get_user_item():
-            user_item = input("Please select an item (rock/paper/scissors): ")
-            while user_item not in ["rock", "paper", "scissors"]:
-                user_item = input("Try again. Please select an item (rock/paper/scissors): ")
+            user_item = input("Please select an item: \n'R' for rock \n'P' for paper \n'S' for scissors: \n").upper()
+            while user_item not in ["R", "P", "S"]:
+                user_item = input("Try again. Please select an valid item: \n'R' for rock \n'P' for paper \n'S' for scissors: \n").upper()
             return user_item
 
 # get_computer_item(self) – Select rock/paper/scissors at random for the computer. 
@@ -24,7 +24,7 @@ class Game:
     @staticmethod
     def get_computer_item():
         import random
-        computer_item = random.choice(["rock", "paper", "scissors"])
+        computer_item = random.choice(["R", "P", "S"])
         return computer_item
     
 # get_game_result(self, user_item, computer_item) – Determine the result of the game.
@@ -37,8 +37,8 @@ class Game:
     def get_game_result(self):
         if self.user_item == self.computer_item:
             return "draw"
-        elif (self.user_item == "rock" and self.computer_item == "scissors") or (self.user_item == "paper" and self.computer_item == "rock") or (self.user_item == "scissors" and self.computer_item == "paper"):
-            
+        elif (self.user_item == "R" and self.computer_item == "S") or (self.user_item == "P" and self.computer_item == "R") or (self.user_item == "S" and self.computer_item == "P"):
+
             return "win"
         else:
             return "loss"
@@ -56,8 +56,6 @@ class Game:
 # draw means the user and the computer got the same item, and loss means that the user has lost.
 
     def play(self):
-        # user_item = self.user_item
-        computer_item = self.computer_item
         result = self.get_game_result()
-        print(f"You selected {self.user_item}. The computer selected {computer_item}. You {result}.")
+        print(f"You selected {self.user_item}. The computer selected {self.computer_item}. You {result}.")
         return result
