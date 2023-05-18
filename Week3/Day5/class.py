@@ -1,4 +1,4 @@
-import json
+# import json
 
 # user = {
 #     "firstName": "Jane",
@@ -48,10 +48,24 @@ import json
 
 
 
-import requests
-response = requests.get("https://pokeapi.co/api/v2/pokemon/pikachu")
-info = response.json()
-type_pikachu = info["types"][0]["type"]["name"]
+# import requests
+# response = requests.get("https://pokeapi.co/api/v2/pokemon/pikachu")
+# info = response.json()
+# type_pikachu = info["types"][0]["type"]["name"]
 
-sentence = f"Pikachu is a {type_pikachu} type pokemon."
-print(sentence)
+# sentence = f"Pikachu is a {type_pikachu} type pokemon."
+# print(sentence)
+
+import requests
+import json
+def add_data_iss():
+    lst_response = []
+    for i in range(10) :
+        response = requests.get("http://api.open-notify.org/iss-now.json")
+        lst_response.append(response.json())
+    print(lst_response)
+
+    with open("Week3/Day5/iss_info.json", "w") as f:
+        json.dump(lst_response, f, indent=4, sort_keys=True)
+
+add_data_iss()
