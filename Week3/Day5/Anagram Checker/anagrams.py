@@ -23,7 +23,7 @@ from anagram_checker import AnagramChecker
 anagram_checker = AnagramChecker()
 
 def get_user_input():
-    user_input = input("Please enter a word: ")
+    user_input = input("Please enter a word: ").upper().strip()
     return user_input
 
 def validate_user_input(user_input):
@@ -54,8 +54,10 @@ def main():
             print_anagrams(user_input)
         else:
             continue
+        if input("Would you like to enter another word? (Y/N): ").upper() == "Y":
+            continue
+        else:
+            break
+main()
 
-if __name__ == "__main__":
-    main()
 
-    
