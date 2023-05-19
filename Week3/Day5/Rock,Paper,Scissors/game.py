@@ -10,13 +10,13 @@ class Game:
     def __init__(self):
         self.user_item = self.get_user_item()
         self.computer_item = self.get_computer_item()
-        self.result = {}
+        # self.result = {}
 
     @staticmethod
     def get_user_item():
             user_item = input("Please select an item: \n'R' for rock \n'P' for paper \n'S' for scissors: \n").upper()
             while user_item not in ["R", "P", "S"]:
-                user_item = input("Try again. Please select an valid item: \n'R' for rock \n'P' for paper \n'S' for scissors: \n").upper()
+                user_item = input("Try again. Please select a valid item: \n'R' for rock \n'P' for paper \n'S' for scissors: \n").upper()
             return user_item
 
 # get_computer_item(self) – Select rock/paper/scissors at random for the computer. 
@@ -56,6 +56,5 @@ class Game:
 # draw means the user and the computer got the same item, and loss means that the user has lost.
 
     def play(self):
-        result = self.get_game_result()
-        print(f"You selected {self.user_item}. The computer selected {self.computer_item}. You {result}.")
-        return result
+        print(f"You selected {self.user_item}. The computer selected {self.computer_item}. You {self.get_game_result()}.")
+        return self.get_game_result()
