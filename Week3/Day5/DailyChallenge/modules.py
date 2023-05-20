@@ -11,6 +11,7 @@ def get_response_time(url):
     end = time.time()
     return end - start  
 
+
 print(get_response_time("https://www.google.com/"))
 print(get_response_time("https://www.ynet.co.il/home/0,7340,L-8,00.html"))
 print(get_response_time("https://www.imdb.com/"))
