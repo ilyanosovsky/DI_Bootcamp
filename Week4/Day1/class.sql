@@ -59,6 +59,44 @@
 
 -- SELECT * FROM actor WHERE first_name ILIKE '%a%'
 
+-- UPDATE actor
+-- SET last_name = 'Clooney'
+-- WHERE actor_id = 1
+-- RETURNING *
+
+-- SELECT * FROM actor ORDER BY actor_id
+
+-- DELETE FROM actor
+-- WHERE actor_id = 5
+
+-- ALTER TABLE actor ADD COLUMN salary INTEGER
+-- ALTER TABLE actor ADD COLUMN nationality VARCHAR(200)
+
+-- SELECT * FROM actor
+
+-- UPDATE actor
+-- SET salary = 1000000 * number_oscars
+-- RETURNING *
+
+-- UPDATE actor
+-- SET nationality = 'American'
+-- WHERE actor_id IN (1,2,3)
+-- RETURNING *
+
+-- UPDATE actor
+-- SET nationality = 'French'
+-- WHERE actor_id IN (4,5,6,7)
+-- RETURNING *
+
+-- SELECT * FROM actor
+
+-- UPDATE actor
+-- SET nationality = 'French'
+-- WHERE actor_id BETWEEN 1 AND 4
+-- RETURNING *
+
+-- SELECT * FROM actor
+
 
 
  
