@@ -112,8 +112,26 @@
 
 -- SELECT * FROM actor WHERE number_oscars = 5
 
+-- Update the first name of Matt Damon to "Maty"
 
+-- UPDATE actor
+-- SET first_name = 'Maty'
+-- WHERE actor_id = 3
+-- RETURNING *
 
+-- Update the number of oscars of George Clooney to 4, and return the updated record
+
+-- UPDATE actor
+-- SET number_oscars = 4
+-- WHERE actor_id = 1
+-- RETURNING *
+
+-- ALTER TABLE actor RENAME COLUMN date_birth TO age
+
+-- Delete one actor and return it
+
+-- DELETE FROM actor
+-- WHERE actor_id = 6
 
 
 
