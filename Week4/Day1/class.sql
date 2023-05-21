@@ -97,6 +97,24 @@
 
 -- SELECT * FROM actor
 
+-- SELECT * FROM actor ORDER BY actor_id
+-- #1
+-- SELECT * FROM actor WHERE actor_id < 5
+-- #2
+-- SELECT * FROM actor WHERE actor_id < 5 ORDER BY last_name DESC
+-- #3
+-- SELECT * FROM actor WHERE first_name ILIKE '%e%'
+-- #4
+-- UPDATE actor
+-- SET number_oscars = 5
+-- WHERE actor_id < 3
+-- RETURNING *
+
+-- SELECT * FROM actor WHERE number_oscars = 5
+
+
+
+
 
 
  
