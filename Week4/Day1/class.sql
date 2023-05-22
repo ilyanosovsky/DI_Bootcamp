@@ -133,6 +133,56 @@
 -- DELETE FROM actor
 -- WHERE actor_id = 6
 
+-- SELECT COUNT(actor_id)  FROM actor
+
+-- SELECT * FROM actor
+
+-- SELECT COUNT(*) FROM actor
+
+-- SELECT MAX(salary) FROM actor
+
+-- SELECT first_name FROM actor WHERE salary = (SELECT MAX(salary) FROM actor)
+
+-- SELECT first_name, MAX(salary) FROM actor
+
+-- SELECT LOWER(nationality) AS nation, COUNT(*) AS number_people
+-- FROM actor
+-- GROUP BY LOWER(nationality)
+-- HAVING LOWER(nationality) = 'American'
+
+-- SELECT salary, COUNT(*)
+-- FROM actor
+-- GROUP BY salary
+
+-- INSERT INTO actor (first_name, last_name, age, number_oscars, salary)
+-- VALUES ('Ivan', 'Kozin', '1994-28-01', 0, 4000000)
+
+-- CREATE TABLE movies (
+--     movie_id SERIAL PRIMARY KEY, 
+--     movie_title VARCHAR (50) NOT NULL, 
+--     movie_story TEXT, 
+--     actor_playing_id INTEGER REFERENCES actor (actor_id)
+-- )
+
+-- INSERT INTO movies (movie_title, movie_story, actor_playing_id)
+-- VALUES ('Gravity', 'Gravity bla bla',
+-- (SELECT actor_id FROM actor WHERE last_name='Clooney'));
+
+-- SELECT * FROM movies
+
+-- SELECT first_name, last_name, movie_title
+-- FROM actor
+-- INNER JOIN movies ON actor_id = actor_playing_id
+-- WHERE last_name = 'Clooney'
+
+-- SELECT last_name, movie_title
+-- FROM actor
+-- INNER JOIN movies ON actor_id = actor_playing_id
+-- WHERE movie_title ILIKE '%beauty%'
+
+-- SELECT last_name, movie_title
+-- FROM actor
+-- LEFT JOIN movies ON actor_id = actor_playing_id
 
 
  
