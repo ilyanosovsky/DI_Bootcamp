@@ -63,7 +63,7 @@
 
 
 -- Find the avg salary of the software engineers
--- SELECT AVG(salary) FROM employee WHERE job = 'SOFTWARE ENGINEER'
+-- SELECT ROUND(AVG(salary)) FROM employee WHERE job = 'SOFTWARE ENGINEER'
 
 
 -- Create a query that displays EMPFNAME, EMPLNAME, Department_code, DEPTNAME, LOCATION from EMPLOYEE, and DEPARTMENT tables. 
@@ -76,6 +76,9 @@
 -- Display EMPFNAME and "TOTAL SALARY" for each employee (commission and salary)
 -- SELECT empfname, (salary + commission) AS total FROM employee
 
+-- SELECT empfname, emplname, SUM(salary + commission)
+-- FROM employee
+-- GROUP BY empfname, emplname
 
 
 -- Display MAX SALARY from the EMPLOYEE table.
