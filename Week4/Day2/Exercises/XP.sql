@@ -116,4 +116,3 @@
 -- LEFT JOIN customer on payment.customer_id = customer.customer_id 
 -- ORDER BY staff_id
 
-
