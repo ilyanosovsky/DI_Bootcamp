@@ -87,19 +87,46 @@
 
 
 -- Which foreign keys (references) are defined for the customer table? How does this affect the way in which we INSERT into the customer table?
-
-
-
+-- INSERT INTO customer (first_name, last_name, store_id, address_id)
+-- VALUES ('Ben', 'Smith', 1, 2) 
+-- SELECT * FROM customer WHERE first_name = 'Ben'
 
 
 -- We created a new table called customer_review. Drop this table. Is this an easy step, or does it need extra checking?
+-- DROP TABLE customer_review
+
 
 -- Find out how many rentals are still outstanding (ie. have not been returned to the store yet).
+-- SELECT * FROM rental WHERE (return_date IS NULL)
+
+
+
 
 -- Find the 30 most expensive movies which are outstanding (ie. have not been returned to the store yet)
+-- SELECT inventory.film_id, film.title, film.replacement_cost FROM inventory INNER JOIN film ON inventory.film_id = film.film_id
 
--- Your friend is at the store, and decides to rent a movie. He knows he wants to see 4 movies, but he can’t remember their names. Can you help him find which movies he wants to rent?
+-- SELECT * FROM rental 
+-- INNER JOIN inventory ON rental.inventory_id = inventory.inventory_id
+-- LEFT JOIN film ON inventory.film_id = film.film_id
+-- WHERE rental.return_date IS NULL
+-- ORDER BY film.replacement_cost DESC LIMIT 30
+
+
+-- Your friend is at the store, and decides to rent a movie. He knows he wants to see 4 movies, but he can’t remember their names.
+-- Can you help him find which movies he wants to rent?
 -- The 1st film : The film is about a sumo wrestler, and one of the actors is Penelope Monroe.
+
+-- SELECT * FROM actor 
+-- WHERE (first_name = 'Penelope' AND last_name = 'Monroe')
+
+-- SELECT film.film_id, film.title, film.fulltext FROM film_actor 
+-- INNER JOIN film ON film.film_id = film_actor.film_id
+-- WHERE (actor_id = (SELECT actor_id FROM actor WHERE (first_name = 'Penelope' AND last_name = 'Monroe')))
+-- AND film.fulltext @@ to_tsquery ('english', 'sumo') 
+
+
+
+
 
 -- The 2nd film : A short documentary (less than 1 hour long), rated “R”.
 
