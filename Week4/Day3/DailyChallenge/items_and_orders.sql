@@ -3,10 +3,18 @@
 
 -- There should be a one to many relationship between the product_orders table and the items table. An order can have many items, but an item can belong to only one order.
 
-CREATE TABLE product_orders (
-	order_id
+CREATE TABLE items(
+	price INTEGER NOT NULL,
+	item_id SERIAL PRIMARY KEY,
+	item_name VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE product_orders(
+	order_id SERIAL PRIMARY KEY,
 	
-)
+	
+	
+);
 
 
 -- Create a function that returns the total price for a given order.
