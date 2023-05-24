@@ -135,7 +135,7 @@
 
 -- SELECT COUNT(actor_id)  FROM actor
 
--- SELECT * FROM actor
+SELECT * FROM actor
 
 -- SELECT COUNT(*) FROM actor
 
