@@ -14,15 +14,24 @@ def manage_connection(query):
 
         with connection:
             with connection.cursor() as cursor:   #it will close the cursor automatically
-                cursor.execute(query)
-                result = cursor.fetchall()
-                return result
-            
+                 if "SELECT" in query:
+                    cursor.execute(query)
+                    result = cursor.fetchall()
+                    return result
+                 else:
+                    cursor.execute(query)
+                    connection.commit()
     except:
         pass
     finally:
         connection.close() #it will close the connection automatically
 
+
+def insert_actor(*info):
+    query_user = f"INSERT INTO actor (first_name, last_name, age, number_oscars, salary, nationality) VALUES {info}"
+    manage_connection(query_user)
+    
+insert_actor('Jackie', 'Chan', '1963-12-18', 3, 200000, 'Chinese')
 
 # def get_all_actors():
 #     query_user = "SELECT * FROM actor"
@@ -33,11 +42,23 @@ def manage_connection(query):
 
 # get_all_actors()
 
-def get_actors_salary_higher():
-    query_user = "SELECT * FROM actor WHERE salary > 100000"
-    result = manage_connection(query_user)
+# def get_actors_salary_higher():
+#     query_user = "SELECT * FROM actor WHERE salary > 100000"
+#     result = manage_connection(query_user)
 
-    for actor in result:
-        print(f"Name: {actor[1]} {actor[2]}. His salary is {actor[-2]}.")
+#     for actor in result:
+#         print(f"Name: {actor[1]} {actor[2]}. His salary is {actor[-2]}.")
 
-get_actors_salary_higher()
+# get_actors_salary_higher()
+
+# def get_actors_by_lastname(lastname):
+#     query_user = f"SELECT * FROM actor WHERE last_name = '{lastname}'"
+#     result = manage_connection(query_user)
+
+#     for actor in result:
+#         print(f"Name: {actor[1]} {actor[2]}. His birthdate is {actor[3]}.")
+
+# get_actors_by_lastname('Pitt')
+
+
+
