@@ -20,7 +20,7 @@ CREATE TABLE customer (
 CREATE TABLE customer_profile (
 	id SERIAL PRIMARY KEY,
 	isLoggedIn BOOLEAN DEFAULT false,
-	customer_id INTEGER REFERENCES customer(id) 
+	customer_id INTEGER UNIQUE REFERENCES customer(id) 
 );
 
 
