@@ -7,6 +7,10 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Hello family</h1>
+    <h1>Results:</h1>
+    <ul>
+        {% for i in animal_list %}
+            <li>{{i}}</li>
+        {% endfor %}
 </body>
 </html>

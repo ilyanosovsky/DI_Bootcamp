@@ -2,35 +2,29 @@ from django.shortcuts import render
 import json
 from django.http import HttpResponse
 
-with open('animal_json.json') as f:
-    animal_data = json.load(f)
 
-def animal(request, animal_id):
+def animals(request, animal_id):
+    with open('info/animal_json.json') as file:
+        data = json.load(file)
+    
+    for animal in data['animals']:
+        if animal['id'] == int(animal_id):
+            animal_info = { "Name": animal['name'],
+                            "Legs": animal['legs'],
+                            "Weight": animal['weight'],
+                            "Height": animal['height'],
+                            "Speed": animal['speed']}
+    return render(request, 'animal.html', animal_info)
 
-    for animal in animal_data:
-        if animal['id'] == animal_id:
-            # animal with the given id found
-            # extract relevant information and create a context dictionary
-            animal_name = animal['name']
-            animal_legs = animal['legs']
-            animal_weight = animal['weight']
-            animal_height = animal['height']
-            animal_speed = animal['speed']
-            animal_family = animal['family']
-            
-            context = {
-                'name': animal_name,
-                'legs': animal_legs,
-                'weight': animal_weight,
-                'height': animal_height,
-                'speed': animal_speed,
-                'family': animal_family
-            }
-            return render(request, 'animal.html', context)
-
-    return HttpResponse("No animal with that id found")
-
-
-
-def family(request):
-    return render(request, "family.html")
+def families(request, fam_id):
+    with open('info/animal_json.json') as file:
+        data = json.load(file)
+    
+    
+    context = {}
+    context['animal_list'] = []
+    for animal in data['animals']:
+        if animal['family'] == int(fam_id):
+            context['animal_list'].append(animal['name'])
+    
+    return render(request, 'family.html', context)
