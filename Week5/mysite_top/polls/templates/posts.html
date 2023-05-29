@@ -7,15 +7,12 @@
     <title>Document</title>
 </head>
 <body>
-    <h1> {{title}} <small> by {{author}} </small></h1>
-    <p>
-        {{content}}
-    </p>
-
-    {%for subscriber in subscribers_list%}
-        <br> {{subscriber}}
-    {%endfor%}
-
-    <small>{{time}}</small>
+    <h1>Posts</h1>
+    {% for post in post_list%}
+        <h2>{{post.title}}</h2>
+        <p>{{post.content}}</p>
+        <p>{{post.date_created}}</p>
+        <hr>
+    {% endfor %}
 </body>
 </html>

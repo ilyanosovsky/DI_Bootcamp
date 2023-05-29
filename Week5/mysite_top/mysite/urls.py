@@ -16,10 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from polls.views import posts, profile
+from polls.views import posts
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("posts/", posts),
-    path("profile_user/", profile),
 ]
