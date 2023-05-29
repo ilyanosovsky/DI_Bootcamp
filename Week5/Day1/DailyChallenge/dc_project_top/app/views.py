@@ -37,8 +37,23 @@ def people(request):
     context['results'] = results
     return render(request, 'people.html', context)
 
+# def people(request):
+#     people_sorted = sorted(people_list, key=lambda x: x['age'])
+#     context = {'people': people_sorted}
+#     return render(request, 'people.html', context)
+
+
 def person(request, id):
     for i in people_list:
         if i['id'] == int(id):
             context = i
     return render(request, 'person.html', context)
+
+# def person(request, id):
+#     pers = None
+#     for p in people_list:
+#         if p['id'] == int(id):
+#             pers = p
+#             break
+#     context = {'person': pers}
+#     return render(request, 'person.html', context)

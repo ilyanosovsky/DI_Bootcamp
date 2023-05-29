@@ -21,5 +21,5 @@ from app.views import people, person
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("people/", people),
-    path("people/<id>", person),
+    path("people/<id>/", person),
 ]
