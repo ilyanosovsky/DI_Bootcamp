@@ -20,6 +20,6 @@ from app_numbers.views import phonenumber, name
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("phonenumber/", phonenumber, name="phonenumber"),
-    path("name/", name, name="name"),
+    path('persons/phonenumber/<int:phone_number>', phonenumber),
+    path('persons/name/<str:name>', name)
 ]
