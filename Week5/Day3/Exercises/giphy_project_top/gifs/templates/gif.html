@@ -7,6 +7,33 @@
     <title>Document</title>
 </head>
 <body>
-    gif
+    <nav>
+        <a href="/home">Homepage</a>
+    </nav>
+
+
+    <h1>Gif info:  </h1>
+    <p>Name: {{gif.title}} </p>
+    <img src="{{gif.url}}" alt="{{gif.title}}">
+    <p>Link: {{gif.url}} </p>
+    <p>Upload by: {{gif.uploader_name}} </p>
+    <p>Category: {{gif.category.name}} </p>
+
+    <p>Likes: {{gif.likes}} </p>
+   
+   
+      
+     <form id="likebutton" method="POST" action="/gif/{{gif.id}}/1">
+            {% csrf_token %}
+            <button type='submit' style="background-color:green;">Like +1</button>
+    </form>
+
+    <form id="dislikebutton" method="POST" action="/gif/{{gif.id}}/2">
+        {% csrf_token %}
+        <button type='submit' style="background-color:red;">Like -1</button>
+    </form>
+
+
+    
 </body>
 </html>

@@ -11,11 +11,14 @@
         <a href="/home">Homepage</a>
     </nav>
 
-
-    <h1>Categories:  </h1>
-    <ul>
-    {% for items in categories%}
-       <li>{{items.id}}. {{items.title}}" <a href="/category/{{items.id}}">Link to Category view </a></li>
+    <h1>Gifs with positive likes:  </h1>
+    {% for items in gifs%}
+        <img src="{{items.url}}" alt="{{items.title}}">
+        <a href="/gif/{{items.id}}">Link</a>
+        <p>Likes: {{items.likes}}</p>
     {% endfor %}
+
+
+    
 </body>
 </html>

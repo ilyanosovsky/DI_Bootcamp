@@ -7,6 +7,15 @@
     <title>Document</title>
 </head>
 <body>
-    category
+    <nav>
+        <a href="/home">Homepage</a>
+    </nav>
+
+
+    <h1>Gifs in category {{category.name}}  </h1>
+    <p> list:{{gifs}} </p>
+    {% for items in gifs%}
+        <img src="{{items.url}}" alt="{{items.title}}">
+    {% endfor %}
 </body>
 </html>
