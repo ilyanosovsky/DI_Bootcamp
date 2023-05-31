@@ -16,11 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from polls.views import posts, profile, addresses
+from polls.views import posts, profile, addresses, add_category_view
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("posts/", posts),
     path("profile/", profile),
     path("addresses/", addresses),
+    path("add_category/", add_category_view),
 ]

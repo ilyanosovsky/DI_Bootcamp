@@ -1,5 +1,19 @@
 from django.shortcuts import render
 from .models import Post, Category, Email, Person, Address
+from .forms import CategoryForm
+
+
+def add_category_view(request):
+
+    if request.method == "POST":
+        data = request.POST
+        filled_form = CategoryForm(data)
+        filled_form.save()
+
+    cotegory_form = CategoryForm()
+    context = {'form': cotegory_form}
+    return render(request, "add_category.html", context)
+
 
 
 def posts(request):
