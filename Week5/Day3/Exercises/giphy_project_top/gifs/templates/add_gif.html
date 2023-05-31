@@ -11,7 +11,7 @@
     <h1> Add gif </h1>
     <form method="post">
         {% csrf_token %}
-        {{form}}
+        {{form.as_p}}
         <button type="submit">submit</button>
     </form>
     

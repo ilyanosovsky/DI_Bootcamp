@@ -7,6 +7,17 @@
     <title>Document</title>
 </head>
 <body>
-    Hi
+    <nav>
+        <a href="/add_gif">Add new Gif</a>
+        <a href="/add_category">Add new Category</a>
+    </nav>
+    <h1>Home</h1>
+    <h2>Gifs</h2>
+        {% for gif in gifs %}
+            <div>
+                <h3>{{ gif.title }}</h3>
+                <img src="{{ gif.url }}" alt="{{ gif.title }}">
+            </div>
+        {% endfor %}
 </body>
 </html>
