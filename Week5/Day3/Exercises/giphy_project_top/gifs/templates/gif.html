@@ -12,7 +12,7 @@
     </nav>
 
 
-    <h1>Gif info:  </h1>
+    <!-- <h1>Gif info:  </h1>
     <p>Name: {{gif.title}} </p>
     <img src="{{gif.url}}" alt="{{gif.title}}">
     <p>Link: {{gif.url}} </p>
@@ -31,7 +31,21 @@
     <form id="dislikebutton" method="POST" action="/gif/{{gif.id}}/2">
         {% csrf_token %}
         <button type='submit' style="background-color:red;">Like -1</button>
+    </form> -->
+
+    
+    <h1>{{ gif.title }}</h1>
+    <img src="{{ gif.url }}" alt="{{ gif.title }}">
+    <p>Likes: {{ gif.likes }}</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" name="increment" class="btn btn-success">Increment</button>
+        <button type="submit" name="decrement" class="btn btn-danger">Decrement</button>
+      </form>
     </form>
+
+
+
 
 
     

@@ -6,6 +6,7 @@ class Gif(models.Model):
     url = models.URLField()
     uploader_name = models.CharField(max_length=50)
     created_at = models.DateTimeField(auto_now_add=True)
+    likes = models.IntegerField(default=0)
     category = models.ManyToManyField('Category')
 
     def __str__(self):

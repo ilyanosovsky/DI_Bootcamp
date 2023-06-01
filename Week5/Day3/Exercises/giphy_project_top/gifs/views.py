@@ -47,26 +47,42 @@ def gif_view(request, gif_id):
     return render(request, "gif.html", context)
 
 #DailyChalange Likes
-def gif_id_like(request, id : int, like_type: int):
-    # def (request, postid, userpreference):
-    gif_id = Gif.objects.get(id = id) #get gif bt id
-    category_list = gif_id.categories.all() ## Get the categories of one as example  q1.category_set.all()  
+# def gif_id_like(request, id : int, like_type: int):
+#     # def (request, postid, userpreference):
+#     gif_id = Gif.objects.get(id = id) #get gif bt id
+#     category_list = gif_id.categories.all() ## Get the categories of one as example  q1.category_set.all()  
     
-    if request.method == "POST":
+#     if request.method == "POST":
          
-        #find user for id
+#         #find user for id
         
-        if like_type == 1:
-            gif_id.likes += 1
+#         if like_type == 1:
+#             gif_id.likes += 1
                                         
-        elif like_type == 2:
-            gif_id.likes -= 1
-        gif_id.save()
+#         elif like_type == 2:
+#             gif_id.likes -= 1
+#         gif_id.save()
     
-    context ={'gif': gif_id,
-              'category': category_list}
+#     context ={'gif': gif_id,
+#               'category': category_list}
     
+#     return render(request, 'gif.html', context)
+
+def gif_view(request, gif_id):
+    gif = Gif.objects.get(id=gif_id)
+    if request.method == 'POST':
+        if 'increment' in request.POST:
+            gif.likes += 1
+            gif.save()
+        elif 'decrement' in request.POST:
+            gif.likes -= 1
+            gif.save()
+    context = {
+        'gif': gif
+    }
     return render(request, 'gif.html', context)
+
+
 
 #All gifs with Like > 0
 def Like_positive_gifs(request):
