@@ -1,9 +1,10 @@
 from django.contrib import admin
 from django.urls import path
-from app_numbers.views import by_name, by_number
+from app_numbers.views import persons_phonenumber, persons_name, search
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
-    path('persons/phonenumber/<str:phonenumber>', by_number),
-    path('persons/name/<str:name_search>', by_name),
+    path('admin/', admin.site.urls),
+    path('phones/<str:number>/', persons_phonenumber),
+    path('names/<str:name_search>/', persons_name),
+    path('search/', search, name='search'),
 ]

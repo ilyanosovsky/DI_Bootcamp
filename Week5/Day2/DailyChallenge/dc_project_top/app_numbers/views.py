@@ -1,20 +1,39 @@
-from django.shortcuts import render
-from .models import Person
+from django.shortcuts import render, redirect
+from .models import Phonebook
+from .forms import SearchForm
+from django.db.models import Q 
 
-def by_name(request, name_search: str):
+def persons_name(request, name_search: str):
     person = None
     try:
-        person = Person.objects.get(name=name_search)
-    except Person.DoesNotExist:
+        person = Phonebook.objects.get(name=name_search)
+    except Phonebook.DoesNotExist:
         pass
-    context = {'person': person}
-    return render(request, 'name.html', context)
+    context = {'person' : person}
 
-def by_number(request, phonenumber: str):
+    return render(request, 'names.html', context)
+
+
+def persons_phonenumber(request, number: str):
     person = None
     try:
-        person = Person.objects.get(phone_number=phonenumber)
-    except Person.DoesNotExist:
+        person = Phonebook.objects.get(phone_number = number)
+    except Phonebook.DoesNotExist:
         pass
-    context = {'person': person}
-    return render(request, 'phonenumber.html', context)
+
+    context = {'person' : person}
+    
+    return render(request, 'phones.html', context)
+
+def search(request):
+    if request.method == 'POST':
+        query = request.POST('query')
+    
+
+        if SearchForm({'persons_phonenumber': query}).is_valid():
+            return redirect('phones/', phone=query)
+            
+        else:
+            return redirect('phones/', number=query)
+        
+    return render(request, 'search.html')

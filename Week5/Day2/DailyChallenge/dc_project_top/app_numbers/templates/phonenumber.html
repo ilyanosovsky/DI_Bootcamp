@@ -7,18 +7,14 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Info:</h1>
-
-    <h1> Person </h1>
-
-    
-    {{person.name}}
-    <br>
-    {{person.email}}
-    <br>
-    {{person.address}}
-    <br>
-    {{person.phone_number}}
-    
+    {% if person %}
+        <h1>Person Detail</h1>
+        <p>Name: {{ person.name }}</p>
+        <p>Email: {{ person.email }}</p>
+        <p>Phone Number: {{ person.phone_number }}</p>
+        <p>Address: {{ person.address }}</p>
+    {% else %}
+        <h1>No person found with the provided phone number.</h1>
+    {% endif %}
 </body>
 </html>
