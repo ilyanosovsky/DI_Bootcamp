@@ -1,22 +1,24 @@
-"""
-URL configuration for mini_project project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/4.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
 from django.urls import path
+from rent.views import (add_customer_view,
+                        add_vehicle_view,
+                        add_rental_view,
+                        rental_list_view,
+                        rental_detail_view,
+                        customer_list_view,
+                        customer_detail_view,
+                        vehicle_list_view,
+                        vehicle_detail_view,)
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path('rent/customer/add', add_customer_view),
+    path('rent/vehicle/add', add_vehicle_view),
+    path('rent/rental/add', add_rental_view),
+    path('rent/rental/', rental_list_view),
+    path('rent/rental/<int:rental_id>', rental_detail_view),
+    path('rent/customer/', customer_list_view),
+    path('rent/customer/<int:customer_id>', customer_detail_view),
+    path('rent/vehicle/', vehicle_list_view),
+    path('rent/vehicle/<int:vehicle_id>', vehicle_detail_view),
 ]
