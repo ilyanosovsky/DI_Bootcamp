@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock %}</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+</head>
+<body>
+    <div class="container">
+        <ul class="nav bg-info">
+          <li class="nav-item">
+            <a class="nav-link link-light" href="/homepage">HOME</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link link-light" href="/add_film">ADD FILMS</a>   
+          </li>
+          <li class="nav-item">
+            <a class="nav-link link-light" href="/add_director">ADD DIRECTOR</a>   
+          </li>
+        </ul>
+    {% block content %}
+
+    {% endblock %}
+    </div>
+
+   
+<footer class="footer mt-auto py-3 bg-light">
+    <div class="container text-center">
+        <span class="text-muted">Your footer content goes here</span>
+    </div>
+</footer>
+
+
+</body>
+</html>
