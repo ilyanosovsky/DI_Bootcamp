@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.views.generic.edit import CreateView
 from django.views.generic import ListView
-from .models import Film, Country, Category, Director
-from .forms import FilmForm, DirectorForm
+from .models import Film, Country, Category, Director, Review
+from .forms import FilmForm, DirectorForm, ReviewForm
 from django.urls import reverse_lazy
 from django.db.models import Q
 
@@ -26,4 +26,9 @@ class DirectorCreateView(CreateView):
     form_class = DirectorForm
     success_url = reverse_lazy("add_director")
 
-    
+# daily challenge
+class ReviewCreateView(CreateView):
+    model = Review
+    template_name = "add_review.html"
+    form_class = ReviewForm
+    success_url = reverse_lazy("add_review")

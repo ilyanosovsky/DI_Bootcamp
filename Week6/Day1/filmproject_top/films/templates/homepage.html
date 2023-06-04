@@ -5,7 +5,7 @@
 {% block content %}
 
 <h1>
-    New Films:
+    New Films to watch:
 </h1>
 <hr>
 
@@ -16,6 +16,15 @@
         {% endfor %}
         <br>
         release date : {{ film.release_date }}
+        <br>
+        Film review:
+        {% for review in film.review.all %}
+            {{ review.review_text }}
+            <br>
+            Rating: {{ review.rating }}
+            <br>
+            Review date: {{ review.review_date }}
+        {% endfor %}   
         <hr>
 {% endfor %}
 

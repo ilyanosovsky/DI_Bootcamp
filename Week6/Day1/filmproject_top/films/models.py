@@ -31,5 +31,14 @@ class Director(models.Model):
     def __str__(self):
         return self.first_name + " " + self.last_name
     
+# daily challenge
+class Review(models.Model):
+    film = models.ForeignKey('Film', on_delete=models.CASCADE, related_name="reviews")
+    review_text = models.TextField()
+    rating = models.IntegerField()
+    review_date = models.DateTimeField(auto_now_add=True)
     
+    def __str__(self):
+        return self.review_text   
+
 
