@@ -1,7 +1,7 @@
 from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
 
-class Phonebook(models.Model):
+class Person(models.Model):
     #model is table
     name = models.CharField(max_length=50)
     email = models.EmailField(max_length=50, unique=True)

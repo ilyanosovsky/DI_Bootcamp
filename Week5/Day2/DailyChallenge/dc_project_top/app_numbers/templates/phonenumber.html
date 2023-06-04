@@ -4,17 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Phone</title>
 </head>
 <body>
-    {% if person %}
-        <h1>Person Detail</h1>
-        <p>Name: {{ person.name }}</p>
-        <p>Email: {{ person.email }}</p>
-        <p>Phone Number: {{ person.phone_number }}</p>
-        <p>Address: {{ person.address }}</p>
+    {% if check %}
+        <h3>Name: {{info.name}}</h1>
+        <p>Phone: {{info.phone_number}}</p>
+        <p>Address: {{info.address}}</p>
+        <p>Email: {{info.email}}</p>
     {% else %}
-        <h1>No person found with the provided phone number.</h1>
+        <h3>Phone don't found.</h3>
     {% endif %}
 </body>
 </html>
