@@ -13,8 +13,9 @@
         <h3>{{ film.title }}</h3> made by
         {% for director in film.director.all %}
             {{ director.first_name }} {{ director.last_name }}
-            {% if not forloop.last %}, {% endif %}
         {% endfor %}
+        <br>
+        release date : {{ film.release_date }}
         <hr>
 {% endfor %}
 
