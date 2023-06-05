@@ -10,28 +10,18 @@
     {% bootstrap_javascript %}
 </head>
 <body>
-    <div class="container">
-        <ul class="nav bg-info">
-          <li class="nav-item">
-            <a class="nav-link link-light" href="/homepage">HOME</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link link-light" href="/add_film">ADD FILMS</a>   
-          </li>
-          <li class="nav-item">
-            <a class="nav-link link-light" href="/add_director">ADD DIRECTOR</a>   
-          </li>
-          <li class="nav-item">
-            <a class="nav-link link-light" href="/add_review">ADD REVIEW</a>   
-          </li>
-          <li class="nav-item">
-            <a class="nav-link link-light" href="/admin">ADMIN PAGE</a>   
-          </li>
-        </ul>
-    {% block content %}
 
-    {% endblock %}
+    <div>
+      Current user: <b>{{user}}</b>
     </div>
+
+
+    {% include  'navbar.html'%}
+
+    
+    {% block content %}
+    {% endblock %}
+    
 
    
 <footer class="footer mt-auto py-3 bg-light">

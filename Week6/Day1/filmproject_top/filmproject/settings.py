@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "films",
     "bootstrap5",
+    "accounts",
 ]
 
 MIDDLEWARE = [
@@ -128,3 +129,7 @@ STATICFILES_DIRS = [Path.joinpath(BASE_DIR, "static")]
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'login'
+LOGIN_URL = 'login'
