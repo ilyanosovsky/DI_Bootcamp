@@ -1,5 +1,5 @@
 from django import forms
-from .models import Film, Country, Category, Director, Review
+from .models import Film, Country, Category, Director, Review, Poster
 
 class FilmForm(forms.ModelForm):
     class Meta:
@@ -21,4 +21,12 @@ class ReviewForm(forms.ModelForm):
         fields = '__all__'
         widgets = {
             'review_date': forms.DateInput(attrs={'type': 'date'}),
+        }
+
+class PosterForm(forms.ModelForm):
+    class Meta:
+        model = Poster
+        fields = '__all__'
+        widgets = {
+            'image' : forms.ImageField
         }

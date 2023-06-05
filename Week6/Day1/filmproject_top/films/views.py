@@ -1,10 +1,15 @@
-from django.shortcuts import render
-from django.views.generic.edit import CreateView
+from typing import Any, Dict, Optional
+from django.db.models.query import QuerySet
+from django.forms.models import BaseModelForm
+from django.http import HttpResponse
+from django.http.response import HttpResponseRedirect
+from django.shortcuts import render, reverse, redirect
+from .models import *
 from django.views.generic import ListView
-from .models import Film, Country, Category, Director, Review
-from .forms import FilmForm, DirectorForm, ReviewForm
+from django.views.generic.edit import CreateView, UpdateView
 from django.urls import reverse_lazy
-from django.db.models import Q
+from .forms import FilmForm, DirectorForm, PosterForm, ReviewForm
+from django.contrib.auth.mixins import UserPassesTestMixin
 
 
 # Create your views here.
@@ -14,11 +19,42 @@ class HomePageView(ListView):
     model = Film
     context_object_name = "films"
 
+    def get_queryset(self) -> QuerySet[Any]:
+        return Film.objects.order_by('director')
+
 class FilmCreateView(CreateView):
     model = Film
     template_name = "add_film.html"
     form_class = FilmForm
     success_url = reverse_lazy("add_film")
+
+    def form_valid(self, form):
+        return super().form_valid(form)
+    
+    def get_success_url(self) -> str:
+        return reverse('home')
+    
+    def get_context_data(self, **kwargs: Any):
+        context = super(FilmCreateView, self).get_context_data(**kwargs)
+        context['title'] = 'Add Film'
+        return context
+    
+class AddPosterView(CreateView):
+    model = Poster
+    form_class = PosterForm
+    template_name = 'add_poster.html'
+    success_url = reverse_lazy('add_poster')
+
+    def form_valid(self, form):
+        return super().form_valid(form)
+    
+    def get_success_url(self):
+        return reverse('home')
+    
+    def get_context_data(self, **kwargs: Any):
+        context = super(AddPosterView, self).get_context_data(**kwargs)
+        context['title'] = 'Add Poster'
+        return context
 
 class DirectorCreateView(CreateView):
     model = Director
@@ -26,9 +62,63 @@ class DirectorCreateView(CreateView):
     form_class = DirectorForm
     success_url = reverse_lazy("add_director")
 
+    def form_valid(self, form):
+        return super().form_valid(form)
+    
+    def get_success_url(self) -> str:
+        return reverse('home')
+    
+    def get_context_data(self, **kwargs: Any):
+        context = super(DirectorCreateView, self).get_context_data(**kwargs)
+        context['title'] = 'Add Director'
+        return context
+    
+class UpdateDirectorView(UserPassesTestMixin, UpdateView):
+    model = Director
+    template_name = 'add_director.html'
+    fields = '__all__'
+
+    def get_success_url(self):
+        return reverse('home')
+
+    def test_func(self):
+        return self.request.user.is_superuser
+    
+    def get_context_data(self, **kwargs: Any):
+        context = super(UpdateDirectorView, self).get_context_data(**kwargs)
+        context['title'] = 'Add Director'
+        return context
+
 # daily challenge
 class ReviewCreateView(CreateView):
     model = Review
     template_name = "add_review.html"
     form_class = ReviewForm
     success_url = reverse_lazy("add_review")
+
+    def form_valid(self, form):
+        return super().form_valid(form)
+    
+    def get_success_url(self) -> str:
+        return reverse('home')
+    
+    def get_context_data(self, **kwargs: Any):
+        context = super(ReviewCreateView, self).get_context_data(**kwargs)
+        context['title'] = 'Add Review'
+        return context
+    
+class UpdateFilmView(UserPassesTestMixin, UpdateView):
+    model = Film
+    template_name = 'add_film.html'
+    fields = '__all__'
+
+    def get_success_url(self):
+        return reverse('home')
+
+    def test_func(self):
+        return self.request.user.is_superuser
+    
+    def get_context_data(self, **kwargs: Any):
+        context = super(UpdateFilmView, self).get_context_data(**kwargs)
+        context['title'] = 'Add Film'
+        return context

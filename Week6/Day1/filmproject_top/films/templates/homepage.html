@@ -5,6 +5,11 @@
     <div class="container">
         <h1>New Films</h1>
         <div class="row">
+
+            {% for p in film.poster.all %}
+                {{ p }}
+            {% endfor %}
+
             {% for film in films %}
                 <div class="col-sm-4">
                     <div class="card" style="width: 18rem;">

@@ -40,5 +40,13 @@ class Review(models.Model):
     
     def __str__(self):
         return self.review_text   
+    
+class Poster(models.Model):
+    image = models.ImageField
+    explanation_img = models.CharField(max_length=100)
+    film = models.OneToOneField(Film, on_delete=models.CASCADE, related_name='poster')
+
+    def __str__(self):
+        return f'Poster for {self.film.title}'
 
 
