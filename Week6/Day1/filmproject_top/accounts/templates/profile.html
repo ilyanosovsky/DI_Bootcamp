@@ -2,11 +2,10 @@
 
 {% block content %}
     
-    <h1> Profile </h1>
-    <form method="post">
-        {%csrf_token%}
-        {{form.as_p}}
-        <!-- <button type="submit"> Login </button> -->
-    </form>
+    <h1>User Profile</h1>
+    <h3>Welcome, {{user.first_name}} {{user.last_name}}</h3>
+    <p>Your username is {{ user.username }}</p>
+    <p>Thank you for visiting and we're glad to see you again!</p>
+
 
 {% endblock content %}

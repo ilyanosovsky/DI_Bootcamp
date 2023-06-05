@@ -3,6 +3,8 @@
       <li class="nav-item">
         <a class="nav-link link-light" href="{% url 'home' %}">HOME</a>
       </li>
+      
+      {% if user.is_superuser %}
       <li class="nav-item">
         <a class="nav-link link-light" href="/films/add_film">ADD FILMS</a>   
       </li>
@@ -14,26 +16,33 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link link-light" href="/accounts/register">REGISTER</a>   
+        <a class="nav-link link-light" href="/admin">ADMIN PAGE</a>   
+      </li>
+      {% endif %}
+
+
+
+
+
+      {%if user.is_authenticated %}
+      <li class="nav-item">
+        <a class="nav-link link-light" href="/accounts/logout">LOGOUT</a>   
       </li>
 
       <li class="nav-item">
         <a class="nav-link link-light" href="/accounts/profile">PROFILE</a>   
       </li>
 
-      {%if user.is_authenticated %}
-      <li class="nav-item">
-        <a class="nav-link link-light" href="/accounts/logout">LOGOUT</a>   
-      </li>
       {%else%}
+      <li class="nav-item">
+        <a class="nav-link link-light" href="/accounts/register">REGISTER</a>   
+      </li>
       <li class="nav-item">
         <a class="nav-link link-light" href="/accounts/login">LOGIN</a>   
       </li>
       {%endif%}
 
-      <li class="nav-item">
-        <a class="nav-link link-light" href="/admin">ADMIN PAGE</a>   
-      </li>
+      
 
     </ul>
 </div>
