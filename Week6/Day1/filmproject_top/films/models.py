@@ -42,7 +42,7 @@ class Review(models.Model):
         return self.review_text   
     
 class Poster(models.Model):
-    image = models.ImageField
+    image = models.URLField(default = '')
     explanation_img = models.CharField(max_length=100)
     film = models.OneToOneField(Film, on_delete=models.CASCADE, related_name='poster')
 

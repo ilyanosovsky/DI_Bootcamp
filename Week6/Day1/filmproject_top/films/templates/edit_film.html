@@ -1,18 +1,17 @@
 {% extends 'base.html' %}
 
-{% block title %} Add Film {% endblock %}
+{% block title %} Edit Film {% endblock %}
 
 {% block content %}
 
 <h1>
-    Add a new Film:
+    Edit a Film:
 </h1>
 <hr>
 
 <form method="post">
     {% csrf_token %}
     {{form.as_p}}
-    {{poster_form.as_p}}
     <button type="submit">submit</button>
 
 </form>

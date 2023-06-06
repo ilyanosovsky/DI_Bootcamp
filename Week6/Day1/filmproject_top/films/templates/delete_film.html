@@ -4,16 +4,19 @@
 
 {% block content %}
 
+
 <h1>
-    Add a new Film:
+    Delete a Film:
 </h1>
 <hr>
 
+<h2>Sure to delete the film?</h2>
+
 <form method="post">
+
     {% csrf_token %}
     {{form.as_p}}
-    {{poster_form.as_p}}
-    <button type="submit">submit</button>
+    <button type="submit">delete</button>
 
 </form>
 

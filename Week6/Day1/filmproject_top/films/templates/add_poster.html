@@ -1,12 +1,7 @@
-{% extends 'base.html' %}
-
 {% block content %}
 
-    <h2>{{title}}</h2>
-    <form action="" method="post">
-        {%csrf_token%}
-        {{form.as_p}}
-        <button type="submit"> ADD </button>
-    </form>
-
+    <h2>Add Poster</h2>
+    {{form.as_p}}
+    <button type="submit">submit</button>
+    
 {% endblock content %}

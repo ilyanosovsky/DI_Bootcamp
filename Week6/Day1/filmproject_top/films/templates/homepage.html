@@ -1,19 +1,20 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
+
+
     
     <div class="container">
         <h1>New Films</h1>
         <div class="row">
 
-            {% for p in film.poster.all %}
-                {{ p }}
-            {% endfor %}
-
             {% for film in films %}
                 <div class="col-sm-4">
                     <div class="card" style="width: 18rem;">
                       <div class="card-body">
+            <img style='width: 150px; height: 200px; margin-bottom: 10px;'  src='{{ film.poster.image }}' alt='{{ film.poster.explanation_img }}'>
+
                           <h5 class="card-title">{{ film.title }} BY
                               {% for director in film.director.all %}
                                 {{ director }}
@@ -34,7 +35,10 @@
                                 {% endfor %}
                             </ul>
                         {% endif %}
-                        <p><a href="{% url 'add_review' %}" class="card-link">Add a Review</a></p>
+                        {% if user.is_superuser %}
+                        <p><a href="{% url 'edit_film' film.id %}" class="card-link">Edit a film</a></p>
+                        <p><a href="{% url 'delete_film' film.id %}" class="card-link">Delete a film</a></p>
+                        {% endif %}
                       </div>
                     </div>
                 </div>
