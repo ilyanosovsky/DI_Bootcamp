@@ -2,12 +2,14 @@ from typing import Any, Dict, Optional
 from django.db.models.query import QuerySet
 from django.shortcuts import render, reverse, redirect
 from .models import *
-from django.views.generic import ListView
+from accounts.models import UserProfile
+from django.views.generic import ListView, View, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from .forms import FilmForm, DirectorForm, PosterForm, ReviewForm
 from django.contrib.auth.mixins import UserPassesTestMixin
 from django.contrib.messages.views import SuccessMessageMixin
+from django.http import HttpResponseRedirect
 
 
 # Create your views here.
@@ -127,3 +129,29 @@ class UpdateFilmView(UserPassesTestMixin, UpdateView):
         context = super(UpdateFilmView, self).get_context_data(**kwargs)
         context['title'] = 'Edit Film'
         return context
+        
+class FavoriteFilmView(View):
+    model = UserProfile
+
+    def post(self, request, pk):
+        user = request.user
+        film = Film.objects.get(id=pk)
+
+        if film in user.favorite_films.all():
+            user.favorite_films.remove(film)
+        else:
+            user.favorite_films.add(film)
+
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+    
+class FilmDetailView(DetailView):
+    model = Film
+    template_name = 'film_detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(FilmDetailView, self).get_context_data(**kwargs)
+        context['title'] = Film.objects.get(id=self.kwargs["pk"]).title
+        return context
+
+    def get_queryset(self, **kwargs):
+        return Film.objects.filter(id=self.kwargs["pk"])
