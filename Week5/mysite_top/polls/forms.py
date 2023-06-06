@@ -19,3 +19,21 @@ class PostForm(forms.ModelForm):
             'content': forms.Textarea(attrs={'rows': 3,
                                              'class': 'content_class'})
         }
+
+    def clean_title(self):
+        title = self.cleaned_data['title']
+        if 'Django' in title:
+            raise forms.ValidationError('Cannot include Django in the title')
+        else:
+            return title
+        
+    def clean(self):
+        clean_data = super().clean()
+        title = clean_data['title']
+        content = clean_data['content']
+        author = clean_data['author']
+
+        if author.user.username == 'jd' and 'Django' in content:
+            raise forms.ValidationError('Cannot include Django in the content')
+        else:
+            return clean_data

@@ -1,5 +1,4 @@
 from typing import Any, Dict
-from django.db.models.query import QuerySet
 from django.shortcuts import render
 from .models import Post, Person, Email, Category
 from .forms import CategoryForm, PostForm, SearchForm
@@ -7,11 +6,16 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView
 from django.db.models import Q
 
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+
+from django.contrib.auth.decorators import login_required
+
 from django.urls import reverse_lazy
 
 # 1. create superuser - add in the admin page a Person with first_name = 'ben'
 # 2. create a AddPostView (CreateView) 
 
+@login_required(redirect_field_name=reverse_lazy('posts'), login_url=reverse_lazy('login'))
 def add_post_view(request):
 
     if request.method == 'POST':
@@ -29,11 +33,13 @@ def add_post_view(request):
 
 
 # the class based alternative to add_post_view
-class AddPostView(CreateView):
+class AddPostView(LoginRequiredMixin, CreateView):
     model = Post
     form_class = PostForm
     template_name = 'add_post.html'
     success_url = reverse_lazy('add-post')
+    login_url = reverse_lazy('login')
+    redirect_field_name = reverse_lazy('posts')
 
     def get_initial(self): # sets the 'initial' values for the form of the view
         user = self.request.user # the current user
@@ -59,7 +65,13 @@ def add_category_view(request):
 
 
 # class based view / generic view
-class AddCategoryView(CreateView):
+class AddCategoryView(UserPassesTestMixin, CreateView):
+
+    def test_func(self):
+        if self.request.user.is_authenticated:
+            return True
+        else:
+            return False
 
     model = Category
     # fields = ['name']
