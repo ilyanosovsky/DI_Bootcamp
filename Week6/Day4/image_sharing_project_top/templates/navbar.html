@@ -1,0 +1,19 @@
+<div id="navcontainer">
+    <ul id="navlist">
+    <li><a href="{% url 'home' %}">Home</a></li>
+    <li><a href="{% url 'feed'%}">Feed</a></li>
+    <li><a href="{% url 'my_images' %}">My images</a></li>
+    <li><a href="{% url 'upload_image' %}">Upload image</a></li>
+    <li><a href="{% url 'view_albums'%}">View albums</a></li>
+    <li><a href="{% url 'create_album'%}">Create album</a></li>
+    
+    <li><a href="{% url 'register'%}">Register</a></li>
+    
+    {%if user.is_authenticated %}
+    <li><a href="{% url 'logout' %}">Logout</a></li>
+    {%else%}
+    <li><a href="{% url 'login' %}">Login</a></li>
+    {%endif%}
+    </ul>
+
+</div>
