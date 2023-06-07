@@ -11,8 +11,21 @@
 
 <form method="post">
     {% csrf_token %}
+
     {{form.as_p}}
+<h3>Add a poster: </h3>
+
     {{poster_form.as_p}}
+
+    {{formset.management_form}}
+
+    <h3>Add a Producer:</h3> 
+    {{formset.as_p}}
+
+    <!-- {% for form in formset %}
+        {{form.as_p}}
+    {% endfor %} -->
+
     <button type="submit">submit</button>
 
 </form>

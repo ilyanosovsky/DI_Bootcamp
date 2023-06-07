@@ -8,6 +8,7 @@ class Film(models.Model):
     available_in_countries = models.ManyToManyField('Country', related_name="available_films")
     category = models.ManyToManyField('Category')
     director = models.ManyToManyField('Director')
+    producer = models.ManyToManyField('Producer')
 
     def __str__(self):
         return self.title
@@ -48,5 +49,11 @@ class Poster(models.Model):
 
     def __str__(self):
         return f'Poster for {self.film.title}'
+    
+class Producer(models.Model):
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
 
+    def __str__(self):
+        return self.first_name + " " + self.last_name
 

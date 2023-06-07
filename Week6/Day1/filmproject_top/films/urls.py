@@ -8,7 +8,8 @@ from .views import (HomePageView,
                     FilmDeleteView,
                     confirm_delete,
                     FavoriteFilmView,
-                    FilmDetailView,)
+                    FilmDetailView,
+                    manage_producers)
 
 urlpatterns = [
         path("homepage/", HomePageView.as_view(), name="home"),
@@ -21,4 +22,5 @@ urlpatterns = [
         path('confirm_delete/', confirm_delete, name='confirm_delete'),
         path('favorite_film/<int:pk>/', FavoriteFilmView.as_view(), name='favorite_film'),
         path('film_detail/<int:pk>', FilmDetailView.as_view(), name='film_detail'),
+        path('manage_producers/', manage_producers, name='manage_producers'),
 ]

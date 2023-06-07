@@ -6,7 +6,7 @@ from accounts.models import UserProfile
 from django.views.generic import ListView, View, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
-from .forms import FilmForm, DirectorForm, PosterForm, ReviewForm
+from .forms import FilmForm, DirectorForm, PosterForm, ReviewForm, ProducerForm, ProducerFormSet
 from django.contrib.auth.mixins import UserPassesTestMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.http import HttpResponseRedirect
@@ -46,9 +46,19 @@ class FilmCreateView(CreateView):
     
     def get_context_data(self, **kwargs: Any):
         context = super(FilmCreateView, self).get_context_data(**kwargs)
-        context = {'title': 'Add Film', 'form': FilmForm(), 'poster_form': PosterForm()}
+        context = {'title': 'Add Film', 'form': FilmForm(), 'poster_form': PosterForm(), 'formset': ProducerForm()}
         return context
-    
+
+def manage_producers(request):
+    # POST
+    if request.method == 'POST':
+        formset = ProducerFormSet(request.POST, queryset=Producer.objects.all())
+        if formset.is_valid():
+            formset.save()
+    # GET
+    formset = ProducerFormSet(queryset=Producer.objects.all())
+    context = {'formset': formset}
+    return render(request, 'manage_producers.html', context)
 
     
 class FilmDeleteView(UserPassesTestMixin, SuccessMessageMixin, DeleteView):
