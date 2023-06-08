@@ -13,7 +13,7 @@ class Image(models.Model):
     image = models.ImageField(upload_to='media')
     title = models.CharField(max_length=100)
     description = models.TextField()
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='images')
+    user = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='images')
 
     def __str__(self):
         return self.title
