@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from rest_framework.parsers import JSONParser
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -33,13 +33,13 @@ class StudentDetail(APIView):
     # GET
     def get(self, request, *args, **kwargs):
         if 'pk' in kwargs:
-            student = Student.objects.get(id=kwargs['pk'])
+            student = get_object_or_404(Student, id=kwargs['pk'])
             serializer = StudentSerializer(student)
             return Response(serializer.data)
         else:
-            # queryset = Student.objects.all()
-            # serializer = StudentSerializer(queryset, many=True)
-            return Response(status=404)
+            queryset = Student.objects.all()
+            serializer = StudentSerializer(queryset, many = True)
+            return Response(serializer.data)
 
 
     # PUT
