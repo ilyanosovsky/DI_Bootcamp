@@ -6,52 +6,43 @@ from rest_framework import permissions
 from .permissions import IsDepartmentAdmin
 
 
-class DepartmentListAPIView(generics.ListAPIView):
+class DepartmentListAPIView(generics.ListCreateAPIView):
     queryset = Department.objects.all()
     serializer_class = DepartmentSerializer
-    permission_classes = [permissions.IsAuthenticated ,IsDepartmentAdmin]
+    permission_classes = (IsDepartmentAdmin, )
 
-class DepartmentCreateAPIView(generics.CreateAPIView):
+class DepartmentDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Department.objects.all()
     serializer_class = DepartmentSerializer
-    permission_classes = [permissions.IsAuthenticated ,IsDepartmentAdmin]
+    permission_classes = (IsDepartmentAdmin, )
 
 
-class EmployeeListAPIView(generics.ListAPIView):
+class EmployeeListAPIView(generics.ListCreateAPIView):
     queryset = Employee.objects.all()
     serializer_class = EmployeeSerializer
-    permission_classes = [permissions.IsAuthenticated ,IsDepartmentAdmin]
+    permission_classes = (IsDepartmentAdmin, )
 
-class EmployeeCreateAPIView(generics.CreateAPIView):
+class EmployeeDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Employee.objects.all()
     serializer_class = EmployeeSerializer
-    permission_classes = [permissions.IsAuthenticated ,IsDepartmentAdmin]
+    permission_classes = (IsDepartmentAdmin, )
 
-
-class ProjectRetrieveAPIView(generics.RetrieveAPIView):
+class ProjectListAPIView(generics.ListCreateAPIView):
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
+    permission_classes = (IsDepartmentAdmin, )
 
-class ProjectUpdateAPIView(generics.UpdateAPIView):
+class ProjectDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
+    permission_classes = (IsDepartmentAdmin, )
 
-class ProjectDestroyAPIView(generics.DestroyAPIView):
-    queryset = Project.objects.all()
-    serializer_class = ProjectSerializer
-
-
-class TaskRetrieveAPIView(generics.RetrieveAPIView):
+class TaskListAPIView(generics.ListCreateAPIView):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
-    permission_classes = [permissions.IsAuthenticated ,IsDepartmentAdmin]
+    permission_classes = (IsDepartmentAdmin, )
 
-class TaskUpdateAPIView(generics.UpdateAPIView):
+class TaskDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
-    permission_classes = [permissions.IsAuthenticated ,IsDepartmentAdmin]
-
-class TaskDestroyAPIView(generics.DestroyAPIView):
-    queryset = Task.objects.all()
-    serializer_class = TaskSerializer
-    permission_classes = [permissions.IsAuthenticated ,IsDepartmentAdmin]
+    permission_classes = (IsDepartmentAdmin, )

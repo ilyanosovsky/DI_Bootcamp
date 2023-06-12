@@ -1,11 +1,7 @@
 from rest_framework import permissions
+from .models import DepartmentAdmin
 
 class IsDepartmentAdmin(permissions.BasePermission):
-    def has_object_permission(self, request, view, obj):
 
-        if request.method in permissions.SAFE_METHODS:
-            return True
-        elif request.user == obj.department.administrator:
-            return True
-        else:
-            return False
+    def has_permission(self, request, user):
+        return hasattr(request.user, 'departmentadmin')

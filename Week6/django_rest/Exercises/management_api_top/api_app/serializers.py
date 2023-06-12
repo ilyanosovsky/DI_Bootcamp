@@ -3,13 +3,14 @@ from .models import Department, Employee, Project, Task
 from django.contrib.auth.models import User
 
 class DepartmentSerializer(serializers.ModelSerializer):
-    # name = serializers.HyperlinkedIdentityField(view_name='department-list')
+    name = serializers.HyperlinkedIdentityField(view_name='department-detail')
     class Meta:
         model = Department
         fields = '__all__'
 
 class EmployeeSerializer(serializers.ModelSerializer):
-    # name = serializers.HyperlinkedIdentityField(view_name='employee-list')
+    name = serializers.HyperlinkedIdentityField(view_name='employee-detail')
+    department = serializers.HyperlinkedIdentityField(view_name='department-detail')
     class Meta:
         model = Employee
         fields = '__all__'
@@ -20,7 +21,7 @@ class ProjectSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class TaskSerializer(serializers.ModelSerializer):
-    # name = serializers.HyperlinkedIdentityField(view_name='task-retrieve')
+    name = serializers.HyperlinkedIdentityField(view_name='task-detail')
     class Meta:
         model = Task
         fields = '__all__'
