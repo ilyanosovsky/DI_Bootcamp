@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 TYPE_CHOICES = (
     ("sunny", "Sunny"),
@@ -16,4 +17,11 @@ class Report(models.Model):
     
     def __str__(self):
         return f"{self.location} ({self.temperature}°C)"
+    
+class Forecaster(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return f"{self.user.username}"
+    
     
