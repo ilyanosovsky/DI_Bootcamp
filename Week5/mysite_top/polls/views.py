@@ -1,9 +1,9 @@
 from typing import Any, Dict
 from django.shortcuts import render
 from .models import Post, Person, Email, Category
-from .forms import CategoryForm, PostForm, SearchForm
+from .forms import CategoryForm, PostForm, SearchForm, CategoryFormSet, PostFormSet
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.views.generic import ListView
+from django.views.generic import ListView, View
 from django.db.models import Q
 
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
@@ -14,6 +14,48 @@ from django.urls import reverse_lazy
 
 # 1. create superuser - add in the admin page a Person with first_name = 'ben'
 # 2. create a AddPostView (CreateView) 
+
+
+# class ManageCategories(View):
+
+#     def get(self, request):
+#         formset = CategoryFormSet(queryset=Category.objects.all())
+#         context = {'formset': formset}
+#         return render(request, 'manage_categories.html', context)
+    
+#     def post(self, request):
+#         formset = CategoryFormSet(request.POST, queryset=Category.objects.all())
+#         if formset.is_valid():
+#             formset.save()
+#         context = {'formset': formset}
+#         return render(request, 'manage_categories.html', context)
+
+
+
+def manage_categories(request):
+    # POST
+    if request.method == 'POST':
+        formset = CategoryFormSet(request.POST, queryset=Category.objects.all())
+        if formset.is_valid():
+            formset.save()
+    # GET
+    formset = CategoryFormSet(queryset=Category.objects.all())
+    context = {'formset': formset}
+    return render(request, 'manage_categories.html', context)
+
+def manage_posts(request):
+    # POST
+    if request.method == 'POST':
+        formset = PostFormSet(request.POST, queryset=Post.objects.all())
+        if formset.is_valid():
+            formset.save()
+    # GET
+    formset = PostFormSet(queryset=Post.objects.all())
+    context = {'formset': formset}
+    return render(request, 'manage_posts.html', context)
+
+
+current_user = Person.objects.get(first_name='Ivan')
 
 @login_required(redirect_field_name=reverse_lazy('posts'), login_url=reverse_lazy('login'))
 def add_post_view(request):

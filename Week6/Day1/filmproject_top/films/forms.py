@@ -1,6 +1,7 @@
 from django import forms
 from .models import Film, Country, Category, Director, Review, Poster, Producer
 from django.forms import formset_factory
+from dgango.utils import timezone
 
 class FilmForm(forms.ModelForm):
     class Meta:
@@ -9,6 +10,12 @@ class FilmForm(forms.ModelForm):
         widgets = {
             'release_date': forms.DateInput(attrs={'type': 'date'}),
         }
+
+    def clean_release_date(self):
+        today = timezone.now().date()
+        release_date = self.cleaned_data.get['release_date']
+        if release_date > today:
+            raise forms.ValidationError('Release date must be in the past')
 
 class DirectorForm(forms.ModelForm):
     class Meta:

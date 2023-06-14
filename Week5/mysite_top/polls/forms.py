@@ -37,3 +37,12 @@ class PostForm(forms.ModelForm):
             raise forms.ValidationError('Cannot include Django in the content')
         else:
             return clean_data
+        
+
+CategoryFormSet = forms.modelformset_factory(Category, form=CategoryForm, extra=0)
+
+PostFormSet = forms.modelformset_factory(Post, form=PostForm, extra=0)
+
+
+# CategoryRelatedFormSet = forms.inlineformset_factory(Post, Category, form=CategoryForm, extra=0)
+# PostFormSet = forms.inlineformset_factory(Category, Post, form=PostForm, extra=0)
