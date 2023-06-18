@@ -46,6 +46,11 @@
 //     }
 // }
 
-setTimeout(function() {
-    console.log("Hello");
-}, 2000);
+// setTimeout(function() {
+//     console.log("Hello");
+// }, 2000);
+
+var date = new Date();
+
+// console.log(date.getFullYear());
+
