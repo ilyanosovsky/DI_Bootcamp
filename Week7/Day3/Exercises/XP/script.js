@@ -90,11 +90,13 @@ for (let i of colors) {
 
 // const num = prompt('Enter a number');
 // console.log(typeof num);
-// const num = prompt('Enter a number');
-// do {
-//     const num = prompt('Enter a number again');
-//     console.log('Your number is less than 10');
-// } while (num < 10);
+
+
+let num = 0;
+do {
+    num = prompt('Enter a number again');
+    console.log('Your number is less than 10');
+} while (num < 10);
 
 // 🌟 Exercise 4 : Building Management
 // Instructions:
