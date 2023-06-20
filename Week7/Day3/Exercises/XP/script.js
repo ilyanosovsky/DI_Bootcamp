@@ -167,10 +167,12 @@ const details = {
   the: 'raindeer'
 }
 // Given the object above and using a for loop, console.log “my name is Rudolf the raindeer”
-
+let str = [];
 for (let i in details) {
-    console.log(`${i} ${details[i]}`);
+    // console.log(`${i} ${details[i]}`);
+    str.push(`${i} ${details[i]}`);
 }
+console.log(str.join(' '));
 
 // Exercise 7 : Secret Group
 // Instructions
