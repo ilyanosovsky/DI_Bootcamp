@@ -39,4 +39,6 @@ for (let book of allBooks){
     }
 }
 
-
+for (let img of document.querySelectorAll("img")){
+    img.style.width = "100px";
+}
