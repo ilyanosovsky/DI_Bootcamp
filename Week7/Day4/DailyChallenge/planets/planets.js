@@ -46,13 +46,13 @@ let planets = [
     }
 ];
 
-let section = document.querySelector("section");
+let section = document.querySelector("section"); // get the section element from the HTML
 
 for (let planet of planets){
-    let div = section.appendChild(document.createElement("div"));
-    div.classList.add("planet");
-    div.style.backgroundColor = randomColor();
-    div.appendChild(document.createElement("h1")).innerText = planet.name;
+    let div = section.appendChild(document.createElement("div")); // create a div element and append it to the section
+    div.classList.add("planet"); // add the planet class to the div
+    div.style.backgroundColor = randomColor(); // set the background color of the div to a random color
+    div.appendChild(document.createElement("h1")).innerText = planet.name; // create a h1 element and append it to the div, set the text to the planet name
     for(let i = 0; i < planet.moons; i++){
         let moon = div.appendChild(document.createElement("div"));
         moon.classList.add("moon");
