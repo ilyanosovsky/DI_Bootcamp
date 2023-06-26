@@ -16,11 +16,6 @@ let myPerson = document.querySelector("#person");
 let myVerb = document.querySelector("#verb");
 let myPlace = document.querySelector("#place");
 
-let myNounValue = "";
-let myAdjectiveValue = "";
-let myPersonValue = "";
-let myVerbValue = "";
-let myPlaceValue = "";
 
 function getValues() {
     myNounValue = myNoun.value;
