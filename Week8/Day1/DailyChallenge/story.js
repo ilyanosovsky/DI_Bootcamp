@@ -6,6 +6,7 @@
 // (but keep the values entered by the user). The user could click the button at least three times and get a new story. Display the stories randomly.
 
 let form = document.querySelector("form");
+// form.addEventListener("submit", getValues);
 let button = document.querySelector("#lib-button");
 let shuffleButton = document.querySelector("#shuffle");
 let story = document.querySelector("p");
@@ -17,6 +18,8 @@ let myVerb = document.querySelector("#verb");
 let myPlace = document.querySelector("#place");
 
 
+
+
 function getValues() {
     myNounValue = myNoun.value;
     myAdjectiveValue = myAdjective.value;
@@ -24,6 +27,30 @@ function getValues() {
     myVerbValue = myVerb.value;
     myPlaceValue = myPlace.value;
 }
+
+// function getValues(event) {
+//     // console.log(event.target);
+//     event.preventDefault();
+//     // const arrValues = [];
+//     const objValues = {}
+//     const allInputs = event.target.querySelectorAll("input");
+//     // console.log(allInputs);
+//     for (let inp of allInputs) {
+//         if (inp.value === "") {
+//             alert("fill the form");
+//             return;
+//         }
+//         objValues[inp.id] = inp.value;
+//     }
+//     showStory(objValues);
+// }
+
+// function showStory() {
+//     const spanElement = document.getElementById('story');
+//     const text = `The ${objValues["noun"]} is ${objValues["verb"]}`;
+//     const textNode = document.createTextNode(text);
+//     spanElement.appendChild(textNode);
+// }
 
 function checkValues() {
     if (myNounValue === "" || myAdjectiveValue === "" || myPersonValue === "" || myVerbValue === "" || myPlaceValue === "") {
