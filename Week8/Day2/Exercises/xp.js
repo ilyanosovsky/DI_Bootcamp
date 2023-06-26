@@ -212,22 +212,22 @@
 // invoke the addIngredients function TWICE. Then invoke once the displayJuice function. 
 // Finally, invoke the makeJuice function in the global scope.
 
-// function makeJuice(size) {
-//     let ingredients = [];
-//     let juiceSize = size;
-//     function addIngredients (a, b, c) {
-//         ingredients.push(a, b, c);
-//     };
-//     function displayJuice () {
-//         let text = `The client wants a ${juiceSize} juice, containing: `;
-//         for (let ing of ingredients){
-//             text += ing + ", ";
-//         }
-//         const textNode = document.createTextNode(text);
-//         document.body.appendChild(textNode);
-//     }
-//     addIngredients("apple", "orange", "melon");
-//     addIngredients("banana", "lemon", "grape");
-//     displayJuice()
-// }
-// makeJuice("small");
+function makeJuice(size) {
+    let ingredients = [];
+    let juiceSize = size;
+    function addIngredients (a, b, c) {
+        ingredients.push(a, b, c);
+    };
+    function displayJuice () {
+        let text = `The client wants a ${juiceSize} juice, containing: `;
+        for (let ing of ingredients){
+            text += ing + ", ";
+        }
+        const textNode = document.createTextNode(text);
+        document.body.appendChild(textNode);
+    }
+    addIngredients("apple", "orange", "melon");
+    addIngredients("banana", "lemon", "grape");
+    displayJuice()
+}
+makeJuice("small");
