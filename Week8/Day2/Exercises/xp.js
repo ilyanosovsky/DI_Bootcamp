@@ -160,10 +160,16 @@
 // In your js file, create a self invoking funtion that takes 1 argument: the name of the user that just signed in.
 // The function should add a div in the nabvar, displaying the name of the user and his profile picture.
 
-(function welcome (user) {
-    const navBar = document.getElementById("nav");
-    navBar.textContent = "Hello " + user;
-}) ("John");
+// ((username, picture) => {
+//     const myNav = document.getElementById('navbar');
+//     const myDiv = document.createElement('div');
+//     const myImg = document.createElement('img')
+//     myDiv.setAttribute('id', 'welcome');
+//     myNav.append(myDiv, myImg);
+//     myDiv.textContent = `Welcome ${username}`
+//     myImg.src = `${picture}`;
+//     myImg.style.width = "50%";
+// })('John', 'https://img.freepik.com/premium-vector/man-avatar-profile-picture-vector-illustration_268834-538.jpg')
 
 // 🌟 Exercise 8 : Juice Bar
 // Instructions
