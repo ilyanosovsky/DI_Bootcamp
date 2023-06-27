@@ -100,13 +100,12 @@ const students = [{name: "Ray", course: "Computer Science", isPassed: true},
 
 
 // Using the filter() method, create a new array, containing the students that passed the course.
-const passed = students.filter((el) => el["isPassed"] === true);
+const passed = students.filter((el) => el["isPassed"]);
 console.log(passed);
 
 // Bonus : Chain the filter method with a forEach method, to congratulate the students 
 // with their name and course name (ie. “Good job Jenner, you passed the course 
 //     in Information Technology”, “Good Job Marco you passed the course in Robotics” ect…)
 
-let l = [];
-passed.forEach((el) => l.push(`Good job ${el["name"]}, you passed the course in ${el["course"]}`));
-console.log(l);
+passed.forEach((el) => console.log(`Good job ${el["name"]}, you passed the course in ${el["course"]}`));
+
