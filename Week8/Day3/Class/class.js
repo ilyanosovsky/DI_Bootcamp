@@ -353,9 +353,9 @@ const votedPeople = voters.reduce((accumulator, currentValue) => {
 console.log(votedPeople);
 
 
-//not correct syntax
-// const votedPeople2 = voters.reduce((accumulator, currentValue) => currentValue["voted"] ? accumulator+1 : accumulator), accumulator = 0; 
-// console.log(votedPeople2);
+
+const votedPeople2 = voters.reduce((accumulator, currentValue) => currentValue["voted"] ? accumulator+1 : accumulator, 0); 
+console.log(votedPeople2);
 
 
 const votedPeople3 = voters.reduce((accumulator, currentValue) => {
