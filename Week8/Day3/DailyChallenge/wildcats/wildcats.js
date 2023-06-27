@@ -35,7 +35,7 @@ const gameInfo = [
 // const usernames = ["john!", "becky!", "susy!", "tyson!"]
 
 let res = [];
-gameInfo.forEach((el,ind) => res.push((el["username"] += "!")));
+let resNames = gameInfo.forEach((el,ind) => res.push((el["username"] += "!")));
 console.log(res);
 
 
@@ -44,9 +44,11 @@ console.log(res);
 // const winners = ["becky", "susy"]
 
 let resW = [];
-gameInfo.forEach((el,ind) => resW.push((el["username"] += "!")));
-console.log(resW);
-
+gameInfo.filter((el) => el["score"] > 5).forEach((el,ind) => resW.push(el["username"] += "!"));
+console.log("resW", resW);
 
 
 // 3. Find and display the total score of the users. (Hint: The total score is 71)
+let sumScore = 0;
+gameInfo.forEach((el,ind) => sumScore += el["score"]);
+console.log(sumScore);
