@@ -222,3 +222,203 @@ allNamesJobs2.forEach((person) => {
     divEl.appendChild(text);
     document.body.appendChild(divEl);
 })
+
+//filter methods
+
+const numbers = [12,3,7,8,19];
+
+const evenNumbers = numbers.filter((element) => element % 2 === 0);
+console.log(evenNumbers);
+
+
+
+const students2 = [
+    {name: 'Rich', score: 33},
+    {name: 'Peter', score: 55},
+    {name: 'John', score: 75}
+];
+
+
+const specialStudents = students2.filter((element) => element["score"] > 50 && element["name"].length > 4);
+console.log(specialStudents);
+
+// Exercise 1: create a new array that filters only the positive value
+const numbers2 = [-23,-20,-17, -12, -5, 0, 1, 5, 12, 19, 20];
+
+const positive = numbers2.filter((element) => element > 0);
+console.log(positive);
+
+// Exercise 2: Suppose you have a list of Star Trek characters,
+// and you want to get just the characters that appeared in Star Trek: 
+// The Next Generation. Use filter() to filter the array of characters below
+const characters = [
+   { name: 'James T. Kirk', series: ['Star Trek'] },
+   { name: 'Spock', series: ['Star Trek', 'Star Trek: The Next Generation'] },
+   { name: 'Jean-Luc Picard', series: ['Star Trek: The Next Generation'] },
+   { name: 'Worf', series: ['Star Trek: The Next Generation', 'Star Trek: Deep Space Nine'] }
+]; 
+
+const starTrek = characters.filter((element) =>  element["series"].includes('Star Trek: The Next Generation'));
+console.log(starTrek);
+
+const starTrekName = characters.filter((element) =>  element["series"].includes('Star Trek: The Next Generation')).map((element) => element["name"]);
+console.log(starTrekName);
+
+
+
+
+//some other methods
+
+const nums = [2,5,7,18,4];
+//at least one num bigger than 5
+const isNumBigger = nums.some((element) => element > 5);
+console.log(isNumBigger);
+
+
+//all nums > 5
+const isAllNums = nums.every((element) => element > 5);
+console.log(isAllNums);
+
+
+
+
+//reduce method
+// an array in one value
+
+const prices2 = [20,34,13,6];
+
+const summ = prices2.reduce((accumulator, currentValue) => {
+    return accumulator + currentValue;
+});
+console.log(summ);
+
+
+//start from 1000
+const prices3 = [20,34,13,6];
+
+const summ3 = prices3.reduce((accumulator, currentValue) => {
+    return accumulator + currentValue;
+}, 1000);
+console.log(summ3);
+
+
+
+
+
+const people = ["John", "Lea", "Tom"];
+
+const acronym = people.reduce((accumulator, currentValue) => {
+    return accumulator + currentValue[0];
+}, "")
+
+console.log(acronym);
+
+
+
+// Exercise 1
+const students5 = [
+ 	{name: 'Rich', score: 33}, 
+ 	{name: 'Peter', score: 55},
+ 	{name: 'John', score: 75}
+];
+// Find the sum of the score of the students using reduce
+
+const sum5 = students5.reduce((accumulator, currentValue) => {
+    return accumulator + currentValue["score"];
+}, 0);
+console.log(sum5);
+
+
+
+const sum6 = students5.map((element) => element["score"]).reduce((accumulator, currentValue) => accumulator + currentValue);
+console.log(sum6);
+
+// Exercise 2
+// Turn an array of voter objects into a count of how many people voted
+let voters = [
+    {name:'Bob' , age: 30, voted: true},
+    {name:'Jake' , age: 32, voted: true},
+    {name:'Kate' , age: 25, voted: false},
+    {name:'Sam' , age: 20, voted: false},
+    {name:'Bob' , age: 30, voted: true},
+];
+
+const votedPeople = voters.reduce((accumulator, currentValue) => {
+    if (currentValue["voted"]) {
+        return accumulator+1
+    } else {
+        return accumulator
+    }
+}, 0)
+console.log(votedPeople);
+
+
+//not correct syntax
+// const votedPeople2 = voters.reduce((accumulator, currentValue) => currentValue["voted"] ? accumulator+1 : accumulator), accumulator = 0; 
+// console.log(votedPeople2);
+
+
+const votedPeople3 = voters.reduce((accumulator, currentValue) => {
+    return accumulator+currentValue["voted"];
+}, 0)
+console.log(votedPeople3);
+
+
+
+
+
+
+const colors = ["blue", "red", "yellow"];
+
+//destructuring
+const [first, second] = colors;
+console.log("first: ", first);
+console.log("seconf: ", second);
+
+
+
+
+//rest operator - packing the array
+
+const colors2 = ["blue", "red", "yellow", "black", "red"];
+
+const [a,b, ...c] = colors2;
+console.log("c: ", c);
+
+
+
+
+
+//spread operator
+//unpacking an array
+
+const leters = ["a", "b", "c"];
+const numms = [1,2,3];
+const all = [...leters, ...numms];
+console.log(all);
+
+
+const colors3 = ["blue", "red"];
+const fav = ["white", ...colors3];
+console.log(fav);
+
+
+
+
+const colors4 = ["blue", "red", "yellow", "black", "red"];
+const myColors = colors4; //point to the same refference
+
+myColors[0] = "pink";
+console.log("my ", myColors);
+console.log("col", colors4);
+
+const favcol = [...colors4];
+favcol[0] = "green";
+console.log("my new", myColors);
+console.log("col new", colors4);
+console.log("fav new", favcol);
+
+
+
+
+
