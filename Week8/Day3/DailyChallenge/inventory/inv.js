@@ -17,7 +17,7 @@ const inventory = [
 ];
 
 function getCarHonda(carInventory) {
-    const car = inventory.find((el) => el["car_make"] === "Honda");
+    const car = carInventory.find((el) => el["car_make"] === "Honda");
     return `This is a ${car["car_make"]} ${car["car_model"]} from ${car["car_year"]}`;
 }
 console.log(getCarHonda(inventory)); 
@@ -39,7 +39,7 @@ const inventory2 = [
 ];
 
 function sortCarInventoryByYear(carInventory) {
-    inventory2.sort((a,b) => a["car_year"] - b["car_year"]);
+    carInventory.sort((a,b) => a["car_year"] - b["car_year"]);
     console.log(inventory2);
 }
 sortCarInventoryByYear(inventory2);
