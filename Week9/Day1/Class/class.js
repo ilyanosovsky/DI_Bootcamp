@@ -113,7 +113,132 @@ console.log(res_3,res_4);
 
 
 
+// FORMS
+const jsonstr = `{
+    "employees" : [
+        {"firstName" : "John", "lastName" : "Doe"},
+        {"firstName" : "Ilya", "lastName" : "Nosovski"},
+        {"firstName" : "Ivan", "lastName" : "Kozin"}
+    ]
+}`;
+//conver from JSON string to JS object
+const objData = JSON.parse(jsonstr);
+
+const person = {first:"name", last:"Doe"};
+//convert JS object to JSON string
+const jsonstr2 = JSON.stringify(person);
+
+const fruits = {
+    color: 'red',
+    amount: 10,
+    prices: {
+        euros: 2,
+        dollars: 10,
+        allprices: [10,20,30],
+        pictures: {
+            firstpic: "pear"
+        }
+    }
+}
+
+const marketFruit = {...fruits}
+marketFruit["color"] = "yellow";
+marketFruit['prices']['euros'] = 5;
+
+//deep copy
+const shoppingFruit = JSON.parse(JSON.stringify(fruits));
 
 
+// Exercise with JSON
+// Parse this JSON string into a JS object
+// Use array or object methods to display THE VALUES OF THE OPTIONS OF THE FIRST SPORT QUESTION
+// Create another variable to stringify the JS object. Console.log the variable
+// Then use pretty print (look at the lesson)
+
+
+let jsonString = `
+{
+    "quiz": {
+        "sport": {
+            "q1": {
+                "question": "Which one is correct team name in NBA?",
+                "options": [
+                    "New York Bulls",
+                    "Los Angeles Kings",
+                    "Golden State Warriros",
+                    "Huston Rocket"
+                ],
+                "answer": "Huston Rocket"
+            }
+        },
+        "maths": {
+            "q1": {
+                "question": "5 + 7 = ?",
+                "options": [
+                    10,
+                    11,
+                    12,
+                    13
+                ],
+                "answer": 12
+            },
+            "q2": {
+                "question": "12 - 8 = ?",
+                "options": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "answer": 4
+            }
+        }
+    }
+}`
   
+
+const objNba = JSON.parse(jsonString);
+const questionSport = objNba['quiz']['sport']['q1']['options'];
+console.log(questionSport);
+questionSport.forEach(element => console.log((element)));
+
+const backStr = JSON.stringify(objNba, null, 2);
+console.log(backStr);
+
+
+
+
+//EXCEPTIONS 
+//throw the ERROR
+// console.log(a);
+
+const err = new Error("Smth bad happend!");
+
+console.log(err);
+console.log(err.message);
+console.log(err.name);
+
+console.log("Hello");
+
+//THROW the error - I created an exeption
+// throw new Error("Again bad things"); //throw an exeption
+//not run below
+
+
+
+function checkDeivision (firstnum, secondnum) {
+    try {
+        if (secondnum === 0) {
+            throw new Error("can not divide by 0")
+        } else {
+            return firstnum/secondnum
+        }
+    } catch (err) {
+        console.log(err.message);
+    }
+}
+checkDeivision(2,0)
+
+
+
 
