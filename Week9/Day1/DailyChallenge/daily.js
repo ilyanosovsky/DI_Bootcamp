@@ -8,6 +8,10 @@ function handleSubmit(event) {
     const data = new FormData(event.target);
     const value = Object.fromEntries(data.entries());
     console.log({ value });
+
+
+
+    
     const jsonStr = JSON.stringify(value);
     const text = document.createTextNode(jsonStr);
     document.body.appendChild(text)
