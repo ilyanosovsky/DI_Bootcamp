@@ -12,18 +12,11 @@
 // "The Morse Code" is an anagram of "Here come dots"
 
 function anagram(str1, str2) {
-    let str1Arr = str1.toLowerCase().split("").sort();
-    let str2Arr = str2.toLowerCase().split("").sort();
-    if (str1Arr.length !== str2Arr.length) {
-        return false;
-    } else {
-        for (let i = 0; i < str1Arr.length; i++) {
-            if (str1Arr[i] !== str2Arr[i]) {
-                return false;
-            }
-        }
-        return true;
-    }
+    const str1Arr = str1.toLowerCase().replace(/\s/g,'').split("").sort().join('');
+    const str2Arr = str2.toLowerCase().replace(/\s/g,'').split("").sort().join('');
+
+    return str1Arr === str2Arr;
+
 }
 
 console.log(anagram("Astronomer", "Moon starer"));
