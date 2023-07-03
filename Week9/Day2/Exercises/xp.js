@@ -62,6 +62,6 @@ newPromise3
 });
 
 newPromise4
-.then(error => {
+.catch(error => {
     console.log("Rejected", error);
 });
