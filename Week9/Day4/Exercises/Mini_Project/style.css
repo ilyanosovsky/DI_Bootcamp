@@ -22,16 +22,8 @@ body {
     align-items: center;
     margin-top: 100px;
     color: rgb(250, 250, 250);
-    font-size: 40px;
+    font-size: 35px;
     text-align: center;
-  }
-
-  p {
-    margin-top: 15px;
-  }
-
-  #namePerson {
-    font-size: 60px;
   }
 
   img {
