@@ -32,6 +32,11 @@ body {
     margin-bottom: 30px;
   }
 
+  button {
+    width: 55px;
+    height: 20px;
+  }
+
   output {
     border: 3px solid black;
     border-radius: 10px;
