@@ -66,7 +66,7 @@ async function convert (convertFrom, convertTo, convertAmount) {
 
 // convert("NIO", "NAD", 100);
 
-button.addEventListener("click", async function(event) {
+button.addEventListener("click", async function() {
     const amountToCheck = amount.value;
     const conversionResult = await convert(selectFrom.value, selectTo.value, amountToCheck);
     output.textContent = conversionResult;
