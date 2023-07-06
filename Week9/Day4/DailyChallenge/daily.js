@@ -17,8 +17,6 @@
 // Example : if the conversion was from EUR to GBP, as soon as the button is clicked on, 
 // the conversion should be from GBP to EUR.
 
-
-const api = "a52cef8196b69478eb28f889";
 // GET https://v6.exchangerate-api.com/v6/YOUR-API-KEY/codes
 // GET https://v6.exchangerate-api.com/v6/YOUR-API-KEY/pair/EUR/GBP
 
@@ -26,15 +24,16 @@ let selectFrom = document.querySelector("#from");
 let selectTo = document.querySelector("#to");
 let amount = document.querySelector("#amount");
 let output = document.querySelector("output");
+const button = document.querySelector("#convert");
 
 
 async function getCurrencies() {
     console.log("start fetching Currencies ...");
     try { 
-        const response = await fetch(`https://v6.exchangerate-api.com/v6/${api}/codes`)
+        const response = await fetch(`https://v6.exchangerate-api.com/v6/a52cef8196b69478eb28f889/codes`)
         if(response.ok) {
             data = await response.json();
-            console.log("data from API", data["supported_codes"]);
+            console.log("data from API: ", data["supported_codes"]);
         } else {
             throw new Error ("issues with fetch")
         }
@@ -51,10 +50,10 @@ async function getCurrencies() {
 async function convert (convertFrom, convertTo, convertAmount) {
     console.log("start fetching Convert...");
     try { 
-        const response = await fetch(`https://v6.exchangerate-api.com/v6/${api}/pair/${convertFrom}/${convertTo}/${convertAmount}`)
+        const response = await fetch(`https://v6.exchangerate-api.com/v6/a52cef8196b69478eb28f889/pair/${convertFrom}/${convertTo}/${convertAmount}`)
         if(response.ok) {
             data = await response.json();
-            console.log(data["conversion_result"]);
+            console.log("Conversion result: ",data["conversion_result"]);
         } else {
             throw new Error ("issues with fetch")
         }
@@ -67,32 +66,26 @@ async function convert (convertFrom, convertTo, convertAmount) {
 
 // convert("NIO", "NAD", 100);
 
-const button = document.querySelector("#convert");
+button.addEventListener("click", async function(event) {
+    const amountToCheck = amount.value;
+    const conversionResult = await convert(selectFrom.value, selectTo.value, amountToCheck);
+    output.textContent = conversionResult;
+});
+  
+async function getCurrenciesAndPopulateSelect() {
+let currencies = await getCurrencies();
 
+for (let currency of currencies) {
+    let optionFrom = document.createElement("option");
+    optionFrom.value = currency[0];
+    optionFrom.textContent = `${currency[0]} - ${currency[1]}`;
+    selectFrom.appendChild(optionFrom);
 
-
-button.addEventListener("click", function (event) {
-    ( async () => {
-        const amountToCheck = amount.value;
-
-        const conversionResult = await convert(selectFrom.value, selectTo.value, amountToCheck);
-
-        output.textContent = conversionResult;
-    } )();
- });
-
-( async () => {
-    let currencies = await getCurrencies();
-    
-    for (let currency of currencies) {
-        let optionFrom = document.createElement("option");
-        optionFrom.value = currency[0];
-        optionFrom.textContent = `${currency[0]} - ${currency[1]}`;
-        selectFrom.appendChild(optionFrom);
-
-        let optionTo = document.createElement("option");
-        optionTo.value = currency[0];
-        optionTo.textContent = `${currency[0]} - ${currency[1]}`;
-        selectTo.appendChild(optionTo);
+    let optionTo = document.createElement("option");
+    optionTo.value = currency[0];
+    optionTo.textContent = `${currency[0]} - ${currency[1]}`;
+    selectTo.appendChild(optionTo);
     }
-} )();
+}
+
+getCurrenciesAndPopulateSelect();
