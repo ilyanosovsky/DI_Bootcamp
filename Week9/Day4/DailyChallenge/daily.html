@@ -8,26 +8,24 @@
 </head>
 <body>
     <div class="container">
-        <h1>Currency Converter</h1>
+        <h3>Currency Converter</h3>
+
         <label for="from">From:</label>
-
-        <select name="from" id="from">
-        </select>
-
-        <div class="switch-button">
-            <img id="switch" onClick="switchCurrencies()" />
-        </div>
+        <select name="from" id="from"></select>
 
         <label for="to">To:</label>
-        <select name="to" id="to">
-        </select>
+        <select name="to" id="to"></select>
+
+        <br>
 
         <label for="amount">Amount:</label>
         <div class="amount-form">
             <input id="amount" type="number" min="1" name="amount" value="1">
             <button id="convert" type="submit">convert</button>
         </div>
+
         <output name="output"></output>
+
     </div>
     <script src="daily.js"></script>
 </body>
