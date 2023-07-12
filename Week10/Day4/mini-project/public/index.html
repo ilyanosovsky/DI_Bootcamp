@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Login&&Register</title>
+</head>
+<body>
+    <h1>Mini Project</h1>
+    <div id="main">
+        <form id="register-form" action="">
+            <div class="container">
+              <h1>Register</h1>
+              <p id="output-register">Please fill in this form to create an account.</p>
+              <hr>
+    
+              <label for="first_name"><b>First Name</b></label>
+              <input type="text" placeholder="Enter First Name" name="first_name" id="first_name" required>
+    
+              <label for="last_name"><b>Last Name</b></label>
+              <input type="text" placeholder="Enter Last Name" name="last_name" id="last_name" required>
+    
+              <label for="email"><b>Email</b></label>
+              <input type="text" placeholder="Enter Email" name="email" id="email" required>
+          
+              <label for="psw"><b>Password</b></label>
+              <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+          
+              <label for="psw-repeat"><b>Repeat Password</b></label>
+              <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
+              <hr>
+          
+              <button onclick="register()" class="registerbtn">Register</button>
+            </div>
+        </form>
+    
+        <form id="login-form" action="">
+            <div class="container">
+              <h1>Login</h1>
+              <p id="output-login">Please fill in this form to log in account.</p>
+              <hr>
+    
+              <label for="email"><b>Email</b></label>
+              <input type="text" placeholder="Enter Email" name="email" id="email-login" required>
+          
+              <label for="psw"><b>Password</b></label>
+              <input type="password" placeholder="Enter Password" name="psw" id="psw-login" required>
+          
+              <button onclick="login()" class="loginbtn">Login</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
