@@ -6,8 +6,17 @@ import prouter from "./routes/products.js"; //without {}
 import path from 'path'
 
 
+// ----
+import ejs from "ejs";
+// ----
+
+
 const app = express();
 dotenv.config();
+
+// ---
+app.set('view engine', 'ejs');
+// ----
 
 //for static
 const __dirname = path.resolve()

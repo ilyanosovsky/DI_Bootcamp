@@ -25,6 +25,24 @@ export const _getAllProducts = (req,res) => {
     })
 }
 
+
+
+//EJS
+export const _getAllProductsEJS = (req,res) => {
+    getAllProducts()
+    .then((data) => {
+        // res.json(data);
+        res.render('shop', {
+            data,
+        });
+    })
+    .catch((e) => {
+        console.log(e);
+        // res.status(404).json({msg: "not found"});
+        res.render('404');
+    })
+}
+
 //SEARCH
 export const _searchProduct = (req,res) => {
     searchProduct(req.query.name)
@@ -42,8 +60,8 @@ export const _searchProduct = (req,res) => {
 export const _postProduct = (req,res) => {
     postProduct(req.body)
     .then((data) => {
-        res.json(data);
-        // _getAllProducts(data);
+        // res.json(data);
+        _getAllProducts(req,res);
     })
     .catch((e) => {
         console.log(e);
