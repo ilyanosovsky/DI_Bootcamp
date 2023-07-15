@@ -1,12 +1,13 @@
 import express from 'express';
-import { _getProfile, _getAllProfiles, _addProfile, _updateProfile, _deleteProfile } from "../controllers/profile.js";
+import { _getAllProfiles, _addProfile, _checkLogin, _getAllLogins, _insertLogin } from "../controllers/profile.js";
 
 const prouter = express.Router();
 
-prouter.get('/', _getAllProfiles);
-prouter.get('/:user_id', _getProfile);
-prouter.post('/', _addProfile);
-prouter.put('/:user_id', _updateProfile);
-prouter.delete('/:user_id', _deleteProfile);
+prouter.get('/profile', _getAllProfiles);
+prouter.post('/profile', _addProfile);
+prouter.get("/login", _getAllLogins);
+prouter.post("/login", _insertLogin);
+prouter.post("/login", _checkLogin)
+
 
 export default prouter;
