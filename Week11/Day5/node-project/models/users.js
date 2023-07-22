@@ -3,9 +3,30 @@
 
 import  db  from "../config/db.js";
 
-export const register = async ({first_name, last_name, username, email, last_login, hash}) => {
-    const trx = await db.transaction();
+export const login = (username) => {
+    return db("login")
+      .join("users", { "users.username": "login.username" })
+      .select(
+        "login.password",
+        "login.login_id",
+        "login.username",
+        "users.user_id",
+        "users.first_name",
+        "users.last_name",
+        "users.email"
+      )
+      .where({ 'login.username': username });
+  };
+  
 
+  export const updateLastLogin = (username) => {
+    return db("users").update({ last_login: new Date() }).where({ username });
+  };
+
+  
+
+export const register = async ({first_name, last_name, username, email, hash}) => {
+    const trx = await db.transaction();
     try {
         const user = await db('users') // trx - transanction (stoping autocommit)
         .insert({first_name, last_name, username, email, last_login: new Date()}, ["user_id", "username", "email", "first_name", "last_name"])

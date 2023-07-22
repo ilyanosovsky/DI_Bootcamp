@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from 'dotenv';
 import cors from 'cors';
+import path from "path";
 
 import user_router from "./routes/users.js";
 
@@ -11,9 +12,12 @@ app.use(cors());
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 
+const __dirname = path.resolve();
+app.use("/", express.static(__dirname + "/public"));
+
 dotenv.config();
 
-app.use('/', user_router);
+app.use('/users', user_router);
 
 //listen the server
 app.listen(process.env.PORT || 3001, () => {
