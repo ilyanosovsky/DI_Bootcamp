@@ -1,4 +1,5 @@
 import CarXp from "./components/CarXP.js";
+import Daily from "./components/Daily.js";
 import EventsXP from "./components/EventsXP.js";
 import PhoneXP from "./components/PhoneXP.js";
 
@@ -16,6 +17,9 @@ function App() {
           <EventsXP />
         {/* Exercise XP part 3 */}
           <PhoneXP />
+
+        {/* DailyChalleng */}
+          <Daily />
     </div>
   );
 }
