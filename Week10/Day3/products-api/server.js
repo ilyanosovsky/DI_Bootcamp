@@ -3,7 +3,8 @@ import express from "express";
 import dotenv from 'dotenv';
 import prouter from "./routes/products.js"; //without {}
 // path include for STATIC
-import path from 'path'
+import path from 'path';
+import cors from 'cors';
 
 
 // ----
@@ -26,6 +27,8 @@ const __dirname = path.resolve()
 // sudo npm i body-parser
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
+
+app.use(cors());
 
 
 //static files
