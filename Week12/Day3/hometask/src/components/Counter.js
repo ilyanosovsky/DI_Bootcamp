@@ -9,7 +9,7 @@ const Counter = (props) => {
 
     return(
         <>
-            {count}
+            {count} <br/>
             <button onClick={()=>setCount(count + 1)}>Add</button>
         </>
     )
