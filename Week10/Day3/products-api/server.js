@@ -5,6 +5,7 @@ import prouter from "./routes/products.js"; //without {}
 // path include for STATIC
 import path from 'path';
 import cors from 'cors';
+import multer from 'multer'; 
 
 
 // ----
@@ -14,6 +15,9 @@ import ejs from "ejs";
 
 const app = express();
 dotenv.config();
+
+const upload = multer();
+app.use(upload.array());
 
 // ---
 app.set('view engine', 'ejs');

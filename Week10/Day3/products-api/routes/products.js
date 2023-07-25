@@ -10,7 +10,12 @@ prouter.post('/', _postProduct); //post products
 prouter.put('/:id', _updateProduct); //update product
 prouter.delete('/:id', _deleteProduct); //delete product
 
-prouter.get('/ejs/shop', _getAllProductsEJS) //for EJS
+prouter.get('/ejs/shop', _getAllProductsEJS); //for EJS
+
+prouter.post('/formdata', (req,res) => {
+    console.log('formdata => ', req.body);
+    res.json({msg:"OK"});
+});
 
 export default prouter; //because we have only one router
 
