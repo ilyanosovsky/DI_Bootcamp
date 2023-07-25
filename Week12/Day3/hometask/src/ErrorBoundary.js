@@ -4,29 +4,38 @@ class ErrorBoundary extends React.Component {
     constructor(){
         super();
         this.state = {
-            hasError: false
+            error: null,
+            errorInfo: ""
         }
     }
 
-    componentDidCatch(err, errInfo){
-        console.log(err);
-        this.setState({hasError:true})
+    componentDidCatch(error, errorInfo) {
+        console.log("error => ", error);
+        console.log("errorInfo => ", errorInfo);
+        this.setState(
+            {
+                error : true,
+                errorInfo : errorInfo
+            }
+        )
     }
 
     render(){
-        if(this.state.hasError){
+        if(this.state.error){
             return (
-                // <details style={{ whiteSpace: 'pre-wrap' }}>
-                //     {this.state.err && this.state.err.toString()}
-                //     <br />
-                //     {this.state.errInfo.componentStack}
-                // </details>
-                <h1>Oops...</h1>
+                <>
+                    <h1>OOOOOOOPS...</h1>
+                    <details style={{ whiteSpace: 'pre-wrap' }}>
+                        {this.state.error && this.state.error.toString()}
+                        <br />
+                        {this.state.errorInfo.componentStack}
+                    </details>
+                </>
             )
         }
-        return(
-            this.props.children
-        )
+        else {
+            return this.props.children
+        }
     }
 }
 
