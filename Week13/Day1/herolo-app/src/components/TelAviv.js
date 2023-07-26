@@ -1,10 +1,7 @@
 import {useState, useEffect} from 'react';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
-console.log('url =>', BASE_URL);
-
 const API_KEY = process.env.REACT_APP_API_KEY;
-console.log('api =>',API_KEY);
 
 const TelAviv = (props) => {
 
