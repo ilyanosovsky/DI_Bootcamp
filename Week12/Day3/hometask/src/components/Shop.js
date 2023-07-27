@@ -1,9 +1,9 @@
 const Shop = (props) => {
-    return(
-        <>
-            <h1>An error has occured</h1>
-        </>
-    )
+    const throwError = () => {
+        throw new Error("Error in shop screen");
+    };
+
+    return <h1>{throwError()}</h1>
 };
 
 export default Shop;

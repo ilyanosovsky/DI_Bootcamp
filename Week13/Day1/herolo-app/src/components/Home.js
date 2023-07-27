@@ -1,5 +1,5 @@
-import FiveDays from "./FiveDays";
-import SearchCity from "./SearchCity";
+// import FiveDays from "./FiveDays";
+// import SearchCity from "./SearchCity";
 import TelAviv from "./TelAviv";
 
 const Home = () => {
@@ -7,11 +7,11 @@ const Home = () => {
         <>
             <h1>Home page</h1>
 
-            <SearchCity />
+            {/* <SearchCity /> */}
 
             <TelAviv />
 
-            <FiveDays />
+            {/* <FiveDays /> */}
 
         </>
     )
