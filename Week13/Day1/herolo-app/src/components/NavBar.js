@@ -16,8 +16,3 @@ const NavBar = () => {
 }
 
 export default NavBar;
-
-//1. How i should use NavBar and Routes
-//2. Structure of components
-//3. Where to store data from API
-//4. How to add to favorites
