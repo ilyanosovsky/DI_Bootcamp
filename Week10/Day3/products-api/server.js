@@ -2,10 +2,12 @@
 import express from "express";
 import dotenv from 'dotenv';
 import prouter from "./routes/products.js"; //without {}
+import urouter from "./routes/users.js";
 // path include for STATIC
 import path from 'path';
 import cors from 'cors';
 import multer from 'multer'; 
+import cookieParser from 'cookie-parser';
 
 
 // ----
@@ -18,6 +20,8 @@ dotenv.config();
 
 const upload = multer();
 app.use(upload.array());
+
+app.use(cookieParser());
 
 // ---
 app.set('view engine', 'ejs');
@@ -45,6 +49,7 @@ app.listen(process.env.PORT, () => {
 
 // app.use(prouter);
 app.use('/api/products', prouter);
+app.use('/users', urouter);
 
 //.confeg - all the connections
 //.models - 
