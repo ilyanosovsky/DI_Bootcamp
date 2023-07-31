@@ -1,8 +1,18 @@
-import {register, login} from "../models/users.js";
+import {register, login, users} from "../models/users.js";
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 dotenv.config();
+
+export const _users = async (req,res) => {
+    try {
+        const rows = await users();
+        res.json(rows)
+    } catch (err) {
+        console.log(err);
+        res.status(404).json({msg:"something went wrong!"})
+    }
+}
 
 export const _login = async (req,res) => {
     try {
@@ -50,3 +60,11 @@ export const _register = (req,res) => {
         res.status(404).json({msg:'user already exists!'})
     })
 };
+
+export const _logout = (req,res) => {
+    // const accessToken = req.cookies.token;
+    // if (!accessToken) return res.sendStatus(204);
+    req.headers['x-access-token'] = null;
+    res.clearCookie('token');
+    return res.sendStatus(200);
+}

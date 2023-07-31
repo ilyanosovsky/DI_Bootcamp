@@ -42,3 +42,7 @@ export const login = async (req, res) => {
     res.status(500).json({ error: "Internal server error" });
   }
 };
+
+export const test = (req,res) => {
+  res.send('Hello Ivan!');
+}

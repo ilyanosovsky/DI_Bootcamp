@@ -11,3 +11,9 @@ export const login = (email) => {
     .select('id','email','password')
     .where({email})
 }
+
+export const users = () => {
+    return db('signinusers')
+    .select('id','email','password')
+    .orderBy('id')
+}

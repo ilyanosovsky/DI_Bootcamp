@@ -38,6 +38,18 @@ app.use(express.json())
 
 app.use(cors());
 
+// request =>  middleware => response
+
+// export const logger = (req,res,next) => {
+//     console.log('logger =>', req.body);
+//     if(req.body.email === 'test@gmail.com'){
+//         next();
+//     } else {
+//         res.json({msg:'unauthorized'})
+//     }
+// };
+
+// app.use(logger);
 
 //static files
 app.use('/', express.static(__dirname + '/public'));

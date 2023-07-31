@@ -23,6 +23,25 @@ def quadratic_algo(items: list):
 
 quadratic_algo(a_list)
 
+#LIFO - last in first out
+a_stack = []
+
+a_stack.append(1)
+a_stack.append(2)
+a_stack.append(3) #last in
+
+a_stack.pop() #First
+
+#deque
+from collections import deque
+
+my_queue = deque(['one', 2, 'three', 4])
+
+my_queue.pop() #0(1) delete from right
+my_queue.popleft() # O(1) <- pop from left
+
+print(my_queue)
+
 
           
 

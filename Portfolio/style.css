@@ -118,8 +118,9 @@ li a:hover {
 .download {
     display: flex;
     margin-left: 2rem;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     height: 100%;
+    /* width: 150px; */
 }
 /* -------------------------------------------------------- */
 
