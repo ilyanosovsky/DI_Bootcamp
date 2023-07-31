@@ -1,18 +1,11 @@
+import {Link} from 'react-router-dom'
 
-
-import {Routes, Route, Link} from 'react-router-dom';
-
-const NavBar = () => {
-
-  return (
-    <>
-    <nav>
-      <Link to="/">Home</Link>{" "}
-      <Link to="/favorite">Favorite</Link>{" "}
-    </nav>
-    
-    </>
-  );
+const NavBar = (props) => {
+  return(
+    <div>
+      <Link to='/'> Home </Link> |
+      <Link to='/favorites' reloadDocument> Favorites </Link>
+    </div>
+  )
 }
-
-export default NavBar;
+export default NavBar
