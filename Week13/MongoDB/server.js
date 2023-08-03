@@ -1,36 +1,20 @@
 const express = require('express');
-const { connectToDb, getDb } = require('./db');
+const mongoose = require('mongoose');
+const Movie = require('./models/movie');
+const movieRoutes = require('./routes/movie-routes');
 
 const PORT = 3001;
+const URL = 'mongodb+srv://imnosovsky:1235846Qq@cluster0.4a4iup5.mongodb.net/moviebox?retryWrites=true&w=majority';
 
 const app = express();
+app.use(express.json());
+app.use(movieRoutes);
 
-let db;
+mongoose
+    .connect(URL, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log('Connected to MongoDB'))
+    .catch((err) => console.log(`DB connection error: ${err}`));
 
-connectToDb((err) => {
-    if (!err) {
-        app.listen(PORT, (err) => {
-            err ? console.log(err) : console.log(`Listening port: ${PORT}`);
-        });
-        db = getDb();
-    } else {
-        console.log(`DB Connection error: ${err}`);
-    }
+app.listen(PORT, (err) => {
+    err ? console.log(err) : console.log(`Listening port: ${PORT}`);
 });
-
-app.get('/movies', (req,res) => {
-    const movies = [];
-
-    db
-    .collection('movies')
-    .find()
-    .sort({title: 1})
-    .forEach((movie) => movies.push(movie))
-    .then(() => {
-        res.status(200).json(movies);
-    })
-    .catch(() => {
-        res.status(500).json({error: "Something wrong"});
-    })
-});
-
